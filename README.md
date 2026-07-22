@@ -1,49 +1,49 @@
-# Jerald Christopher Bucud — Portfolio
+# Jerald Bucud — Software Developer Portfolio
 
-Personal software-development portfolio published through GitHub Pages.
+Personal portfolio website for **Jerald Christopher Bucud**, a Brisbane-based Master of Information Technology student specialising in Software Design and Development and Artificial Intelligence.
 
-## Live site
+## Live website
 
-The portfolio is designed to be available at:
+[https://jeraldbucud.github.io](https://jeraldbucud.github.io)
 
-```text
-https://jeraldbucud.github.io
-```
+## Design direction
+
+The current homepage is an original dark, technical and editorial portfolio design. It uses large typography, outlined sections, system diagrams, an organised technology ecosystem, a career timeline and detailed project case studies.
+
+The visual direction was inspired by modern full-stack developer portfolios, but the active layout, code, diagrams and copy were created specifically for this portfolio.
 
 ## Featured work
 
-- JobFit AI
-- Godscent Drive POS
-- Disaster Response System
-- WeddingOS
-- Excursion
-- Colmar Academy
+- **Godscent Drive POS** — full-stack POS and inventory system
+- **JobFit AI** — NLP-powered resume and job matching tool
+- **Disaster Response System** — JavaFX emergency-response application
+- **WeddingOS** — wedding-planning and marketplace platform
+- **Excursion** — responsive landing page
+- **Colmar Academy** — responsive education website
+- **YOLO Mango Detection** — planned public AI case study
 
-## Technology
+## Technologies
 
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages
+- HTML, CSS and JavaScript
+- Java, Spring Boot and JavaFX
+- Python, FastAPI, Streamlit and NLP
+- React and Next.js
+- PostgreSQL and IndexedDB
+- Git and GitHub
 
-## Updating the portfolio
-
-Most profile, resume and project content is stored in `index.html`.
-Custom additions to the original template are stored in:
-
-```text
-assets/css/custom.css
-```
-
-Interactive navigation and project filtering are handled by:
+## Main website files
 
 ```text
-assets/js/script.js
+index.html
+styles.css
+script.js
+assets/favicon.svg
 ```
 
-## Attribution and licence
+## Updating the website
 
-This portfolio is based on the vCard personal portfolio template by
-[codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio).
-The original template and this customised version are distributed under the
-MIT License. See `LICENSE` for details.
+The site is deployed from the `master` branch using GitHub Pages. Changes pushed to the branch will be published automatically when Pages is enabled for the repository root.
+
+## Privacy notes
+
+Do not publish private credentials, API keys, customer records, complete residential addresses, identity-document details or student identifiers in this repository.
