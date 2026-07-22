@@ -1,773 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Portfolio of Jerald Christopher Bucud, a Brisbane-based software developer and Master of Information Technology student specialising in software development and artificial intelligence."
-  >
-  <meta name="theme-color" content="#121212">
+    content="Portfolio of Jerald Christopher Bucud, a Brisbane-based software developer and Master of Information Technology student."
+  />
+  <meta name="theme-color" content="#0b1120" />
 
-  <meta property="og:title" content="Jerald Christopher Bucud | Software Developer">
+  <meta property="og:title" content="Jerald Christopher Bucud | Software Developer" />
   <meta
     property="og:description"
-    content="Full-stack, Java, Python, AI and software engineering projects."
-  >
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/202955612?v=4">
-  <meta property="og:type" content="website">
+    content="Software development, AI, Java, Python, React, and full-stack projects."
+  />
+  <meta
+    property="og:image"
+    content="https://avatars.githubusercontent.com/u/202955612?v=4"
+  />
+  <meta property="og:type" content="website" />
 
   <title>Jerald Christopher Bucud | Software Developer</title>
-
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/custom.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <main>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Jerald Bucud home">
+        <span class="brand-mark">JB</span>
+        <span>Jerald Bucud</span>
+      </a>
 
-    <aside class="sidebar" data-sidebar>
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-links"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <div class="sidebar-info">
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <figure class="avatar-box">
-          <img
-            src="https://avatars.githubusercontent.com/u/202955612?v=4"
-            alt="Jerald Christopher Bucud"
-            width="80"
-            height="80"
-          >
-        </figure>
+  <main id="main-content">
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Software Developer · AI Student · Brisbane, Australia</p>
+          <h1>
+            I build practical software that solves
+            <span>real-world problems.</span>
+          </h1>
+          <p class="hero-summary">
+            I am a Master of Information Technology student specialising in
+            software development and artificial intelligence. I build full-stack
+            systems, Java applications, and AI-powered tools using Python, Java,
+            React, Spring Boot, FastAPI, and PostgreSQL.
+          </p>
 
-        <div class="info-content">
-          <h1 class="name" title="Jerald Christopher Bucud">Jerald Christopher Bucud</h1>
-          <p class="title">Software Developer</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View my projects</a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/JeraldBucud"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub profile
+            </a>
+          </div>
+
+          <ul class="hero-highlights" aria-label="Career highlights">
+            <li>
+              <strong>Full-stack</strong>
+              <span>Web application development</span>
+            </li>
+            <li>
+              <strong>AI and NLP</strong>
+              <span>Applied machine learning projects</span>
+            </li>
+            <li>
+              <strong>Australia-based</strong>
+              <span>Open to graduate and junior roles</span>
+            </li>
+          </ul>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Details</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
+        <aside class="profile-card reveal" aria-label="Profile summary">
+          <div class="profile-image-wrap">
+            <img
+              class="profile-image"
+              src="https://avatars.githubusercontent.com/u/202955612?v=4"
+              alt="Jerald Christopher Bucud"
+            />
+            <span class="availability">Open to opportunities</span>
+          </div>
 
+          <div class="profile-card-content">
+            <p class="profile-label">Current focus</p>
+            <h2>Software Development and AI</h2>
+            <p>
+              Building portfolio-ready systems while completing a Master of
+              Information Technology at CQUniversity.
+            </p>
+
+            <div class="profile-meta">
+              <span>📍 Brisbane, QLD</span>
+              <span>🎓 Graduation: 2026</span>
+              <span>💻 Java · Python · React</span>
+            </div>
+          </div>
+        </aside>
       </div>
+    </section>
 
-      <div class="sidebar-info_more">
+    <section class="section section-muted" id="about">
+      <div class="container split-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About me</p>
+          <h2>Developer with a practical, user-focused mindset.</h2>
+        </div>
 
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Brisbane, Queensland, Australia</address>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="school-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Education</p>
-              <p class="contact-static">Master of Information Technology</p>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Availability</p>
-              <p class="contact-static">Graduate, junior and internship roles</p>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="logo-github"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">GitHub</p>
-              <a
-                href="https://github.com/JeraldBucud"
-                class="contact-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                github.com/JeraldBucud
-              </a>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a
-              href="https://github.com/JeraldBucud"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Jerald Bucud on GitHub"
-            >
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
+        <div class="about-copy reveal">
+          <p>
+            I am currently completing a Master of Information Technology at
+            CQUniversity, majoring in Software Design and Development with a
+            minor in Artificial Intelligence.
+          </p>
+          <p>
+            My projects cover full-stack web development, desktop applications,
+            natural language processing, database design, offline-first systems,
+            testing, and software engineering. My previous customer service and
+            IT experience also strengthened my communication, problem-solving,
+            adaptability, and teamwork.
+          </p>
+          <p>
+            I am seeking graduate, junior, internship, and entry-level
+            opportunities where I can contribute to useful products and continue
+            developing as a software engineer.
+          </p>
+        </div>
       </div>
+    </section>
 
-    </aside>
-
-    <div class="main-content">
-
-      <nav class="navbar" aria-label="Portfolio navigation">
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-      </nav>
-
-      <article class="about active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading projects-heading reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Projects that demonstrate how I build and learn.</h2>
+          </div>
           <p>
-            I am a Master of Information Technology student at CQUniversity,
-            majoring in Software Design and Development with a minor in
-            Artificial Intelligence.
+            A combination of portfolio projects, university assessments, and
+            larger systems currently in development.
           </p>
+        </div>
 
-          <p>
-            I build practical software using Java, Python, JavaScript, React,
-            Spring Boot, FastAPI and PostgreSQL. My projects include full-stack
-            business systems, AI-powered tools, Java desktop applications and
-            responsive websites.
-          </p>
-
-          <p>
-            I am based in Brisbane and currently seeking graduate, junior,
-            internship and entry-level opportunities in software development,
-            full-stack engineering, artificial intelligence and data-driven
-            applications.
-          </p>
-        </section>
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I do</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full-Stack Development</h4>
-                <p class="service-item-text">
-                  Building responsive interfaces, REST APIs and database-driven
-                  web applications.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Java Development</h4>
-                <p class="service-item-text">
-                  Developing backend and desktop applications using Java,
-                  Spring Boot, JavaFX and testing tools.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Artificial Intelligence</h4>
-                <p class="service-item-text">
-                  Exploring practical natural language processing, computer
-                  vision and machine learning applications.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Database and API Design</h4>
-                <p class="service-item-text">
-                  Designing PostgreSQL databases, secure APIs, authentication
-                  and role-based access workflows.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-        <section class="focus-section">
-
-          <h3 class="h3">Current focus</h3>
-
-          <ul class="focus-list">
-            <li>Completing my Master of Information Technology in 2026.</li>
-            <li>Polishing full-stack and AI projects for production-style demonstrations.</li>
-            <li>Strengthening software testing, deployment and system-design skills.</li>
-            <li>Preparing for graduate and junior software-development opportunities in Australia.</li>
-          </ul>
-
-        </section>
-
-      </article>
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+        <div class="project-grid">
+          <article class="project-card project-featured reveal">
+            <div class="project-topline">
+              <span class="project-number">01</span>
+              <span class="status status-public">Public repository</span>
             </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Master of Information Technology</h4>
-              <span>2025 — 2026 (Expected)</span>
-              <p class="timeline-text">
-                CQUniversity, Brisbane. Major in Software Design and Development
-                with a minor in Artificial Intelligence.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Graduate IT Study Pathway</h4>
-              <span>CQUniversity</span>
-              <p class="timeline-text">
-                Completed articulated graduate-level information technology
-                study leading into the Master of Information Technology.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Bachelor of Aircraft Maintenance Technology</h4>
-              <span>2011 — 2015</span>
-              <p class="timeline-text">
-                Developed technical, analytical, documentation and
-                safety-focused problem-solving skills.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Web Developer and Digital Solutions Specialist</h4>
-              <span>JCYB Digital Agency · 2020 — Present</span>
-              <p class="timeline-text">
-                Build and maintain websites, digital products and practical
-                online solutions for small-business and personal projects.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">IT Specialist</h4>
-              <span>ONB Enterprises · 2019 — 2025</span>
-              <p class="timeline-text">
-                Provided technical support, troubleshooting, system maintenance
-                and digital assistance for day-to-day business operations.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Independent Delivery Contractor</h4>
-              <span>Australia · 2025 — Present</span>
-              <p class="timeline-text">
-                Deliver medications to aged-care facilities while independently
-                managing scheduling, routing, reliability and customer communication.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">Technical skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Java and Spring Boot</h5>
-                <data value="75">Intermediate</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Python and FastAPI</h5>
-                <data value="75">Intermediate</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">React and JavaScript</h5>
-                <data value="70">Developing</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">SQL and PostgreSQL</h5>
-                <data value="70">Intermediate</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-          </ul>
-
-          <div class="technology-list" aria-label="Additional technologies">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaFX</span>
-            <span>Streamlit</span>
-            <span>Next.js</span>
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>REST APIs</span>
-            <span>JWT</span>
-            <span>RBAC</span>
-            <span>NLP</span>
-            <span>YOLO</span>
-          </div>
-
-        </section>
-
-      </article>
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Full Stack</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>AI &amp; ML</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Java</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web</button>
-            </li>
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Full Stack</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>AI &amp; ML</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Java</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web</button>
-              </li>
+            <h3>JobFit AI</h3>
+            <p>
+              An AI-powered resume and job-description matching tool that extracts
+              skills, calculates a match score, identifies missing keywords, and
+              suggests resume improvements.
+            </p>
+            <ul class="tag-list" aria-label="JobFit AI technologies">
+              <li>Python</li>
+              <li>Streamlit</li>
+              <li>spaCy</li>
+              <li>Sentence Transformers</li>
+              <li>NLP</li>
             </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item active" data-filter-item data-category="ai &amp; ml">
+            <div class="project-links">
               <a
                 href="https://github.com/JeraldBucud/jobfit-ai"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
               >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <img
-                    src="https://opengraph.githubassets.com/1/JeraldBucud/jobfit-ai"
-                    alt="JobFit AI repository preview"
-                    loading="lazy"
-                  >
-                </figure>
-
-                <div class="project-heading">
-                  <h3 class="project-title">JobFit AI</h3>
-                  <span class="project-status public">Public</span>
-                </div>
-
-                <p class="project-category">AI &amp; Machine Learning</p>
-                <p class="project-summary">
-                  Resume and job-description matching with keyword extraction,
-                  semantic similarity and improvement suggestions.
-                </p>
+                View repository <span aria-hidden="true">↗</span>
               </a>
-            </li>
+            </div>
+          </article>
 
-            <li class="project-item active" data-filter-item data-category="full stack">
-              <a
-                href="https://github.com/JeraldBucud"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                  </div>
-                  <img
-                    src="./assets/images/project-2.png"
-                    alt="Godscent Drive POS project preview"
-                    loading="lazy"
-                  >
-                </figure>
+          <article class="project-card project-featured reveal">
+            <div class="project-topline">
+              <span class="project-number">02</span>
+              <span class="status status-private">Private · In development</span>
+            </div>
+            <h3>Godscent Drive POS</h3>
+            <p>
+              A role-based point-of-sale and inventory system designed for event
+              selling. It includes sales, refunds, promotions, stock transfers,
+              reports, audit logs, receipts, and offline transaction support.
+            </p>
+            <ul class="tag-list" aria-label="Godscent Drive POS technologies">
+              <li>Java 21</li>
+              <li>Spring Boot</li>
+              <li>React</li>
+              <li>PostgreSQL</li>
+              <li>IndexedDB</li>
+            </ul>
+            <div class="project-note">
+              Source code is private. A detailed case study and screenshots can
+              be added when version one is ready.
+            </div>
+          </article>
 
-                <div class="project-heading">
-                  <h3 class="project-title">Godscent Drive POS</h3>
-                  <span class="project-status private">Private</span>
-                </div>
-
-                <p class="project-category">Full Stack</p>
-                <p class="project-summary">
-                  Event-focused POS and inventory system with sales, stock
-                  transfers, promotions, reports, receipts and offline support.
-                </p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="java">
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">03</span>
+              <span class="status status-public">Public repository</span>
+            </div>
+            <h3>Disaster Response System</h3>
+            <p>
+              A JavaFX application for reporting disasters, managing incidents,
+              assessing severity, recommending priority, tracking emergency
+              resources, and coordinating response information.
+            </p>
+            <ul class="tag-list" aria-label="Disaster Response System technologies">
+              <li>Java</li>
+              <li>JavaFX</li>
+              <li>FXML</li>
+              <li>JUnit</li>
+              <li>Software Engineering</li>
+            </ul>
+            <div class="project-links">
               <a
                 href="https://github.com/JeraldBucud/DisasterResponseSystem"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
               >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <img
-                    src="https://opengraph.githubassets.com/1/JeraldBucud/DisasterResponseSystem"
-                    alt="Disaster Response System repository preview"
-                    loading="lazy"
-                  >
-                </figure>
-
-                <div class="project-heading">
-                  <h3 class="project-title">Disaster Response System</h3>
-                  <span class="project-status public">Public</span>
-                </div>
-
-                <p class="project-category">Java Application</p>
-                <p class="project-summary">
-                  JavaFX system for incident reporting, severity assessment,
-                  emergency resource tracking and response coordination.
-                </p>
+                View repository <span aria-hidden="true">↗</span>
               </a>
-            </li>
+            </div>
+          </article>
 
-            <li class="project-item active" data-filter-item data-category="full stack">
-              <a
-                href="https://github.com/JeraldBucud"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="construct-outline"></ion-icon>
-                  </div>
-                  <img
-                    src="./assets/images/project-4.png"
-                    alt="WeddingOS project preview"
-                    loading="lazy"
-                  >
-                </figure>
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">04</span>
+              <span class="status status-private">Private · In development</span>
+            </div>
+            <h3>WeddingOS</h3>
+            <p>
+              A wedding-planning platform for couples, suppliers, and
+              coordinators, with collaboration, marketplace, planning, website,
+              subscription, and AI-assisted workflow concepts.
+            </p>
+            <ul class="tag-list" aria-label="WeddingOS technologies">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>Next.js</li>
+              <li>PostgreSQL</li>
+              <li>Product Design</li>
+            </ul>
+            <div class="project-note">
+              Product development is ongoing. The portfolio should present this
+              as a case study rather than an unfinished public repository.
+            </div>
+          </article>
 
-                <div class="project-heading">
-                  <h3 class="project-title">WeddingOS</h3>
-                  <span class="project-status development">In development</span>
-                </div>
-
-                <p class="project-category">Full Stack</p>
-                <p class="project-summary">
-                  Wedding-planning platform for couples, suppliers and
-                  coordinators with collaboration and marketplace workflows.
-                </p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web">
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">05</span>
+              <span class="status status-live">Live demo</span>
+            </div>
+            <h3>Excursion Landing Page</h3>
+            <p>
+              A responsive promotional landing page built as a front-end
+              development exercise and deployed using GitHub Pages.
+            </p>
+            <ul class="tag-list" aria-label="Excursion technologies">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Responsive Design</li>
+              <li>GitHub Pages</li>
+            </ul>
+            <div class="project-links">
               <a
                 href="https://jeraldbucud.github.io/Excursion/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
               >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="open-outline"></ion-icon>
-                  </div>
-                  <img
-                    src="https://opengraph.githubassets.com/1/JeraldBucud/Excursion"
-                    alt="Excursion website repository preview"
-                    loading="lazy"
-                  >
-                </figure>
-
-                <div class="project-heading">
-                  <h3 class="project-title">Excursion</h3>
-                  <span class="project-status live">Live</span>
-                </div>
-
-                <p class="project-category">Web Development</p>
-                <p class="project-summary">
-                  Responsive promotional landing page built with HTML and CSS
-                  and deployed through GitHub Pages.
-                </p>
+                Live demo <span aria-hidden="true">↗</span>
               </a>
-            </li>
+              <a
+                href="https://github.com/JeraldBucud/Excursion"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Repository <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
 
-            <li class="project-item active" data-filter-item data-category="web">
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span class="project-number">06</span>
+              <span class="status status-public">Public repository</span>
+            </div>
+            <h3>Colmar Academy</h3>
+            <p>
+              A responsive education website created as a front-end capstone
+              project, demonstrating layout implementation, reusable styling,
+              and responsive web design.
+            </p>
+            <ul class="tag-list" aria-label="Colmar Academy technologies">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Responsive Design</li>
+              <li>Front-end Development</li>
+            </ul>
+            <div class="project-links">
               <a
                 href="https://github.com/JeraldBucud/Capstone-Project-Colmar-Academy"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
               >
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-                  <img
-                    src="https://opengraph.githubassets.com/1/JeraldBucud/Capstone-Project-Colmar-Academy"
-                    alt="Colmar Academy repository preview"
-                    loading="lazy"
-                  >
-                </figure>
-
-                <div class="project-heading">
-                  <h3 class="project-title">Colmar Academy</h3>
-                  <span class="project-status public">Public</span>
-                </div>
-
-                <p class="project-category">Web Development</p>
-                <p class="project-summary">
-                  Responsive education website demonstrating front-end layout,
-                  reusable styling and mobile-friendly design.
-                </p>
+                View repository <span aria-hidden="true">↗</span>
               </a>
-            </li>
+            </div>
+          </article>
+        </div>
 
-          </ul>
-
-          <div class="portfolio-note">
-            <ion-icon name="information-circle-outline"></ion-icon>
-            <p>
-              Additional AI coursework, including a YOLO mango-detection
-              project, will be added after the code, results and documentation
-              are prepared for public viewing.
-            </p>
+        <div class="future-project reveal">
+          <div>
+            <p class="eyebrow">Next portfolio addition</p>
+            <h3>Mango Detection with YOLO</h3>
           </div>
-
-        </section>
-
-      </article>
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="about-text">
           <p>
-            I am open to graduate, junior, internship and entry-level
-            opportunities in software development, full-stack engineering,
-            artificial intelligence and data-driven applications.
+            Add your computer-vision project after uploading clean code, sample
+            results, model metrics, a short demo, and a README explaining the
+            dataset and your contribution.
           </p>
+        </div>
+      </div>
+    </section>
 
+    <section class="section section-muted" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Technical skills</p>
+          <h2>Tools I use to turn ideas into working software.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group reveal">
+            <span class="skill-icon" aria-hidden="true">⌨</span>
+            <h3>Languages</h3>
+            <p>Java, Python, JavaScript, SQL, HTML, CSS</p>
+          </article>
+
+          <article class="skill-group reveal">
+            <span class="skill-icon" aria-hidden="true">◫</span>
+            <h3>Frameworks</h3>
+            <p>Spring Boot, React, FastAPI, Next.js, Streamlit, JavaFX</p>
+          </article>
+
+          <article class="skill-group reveal">
+            <span class="skill-icon" aria-hidden="true">◎</span>
+            <h3>Data and AI</h3>
+            <p>PostgreSQL, NLP, spaCy, Sentence Transformers, YOLO, data analysis</p>
+          </article>
+
+          <article class="skill-group reveal">
+            <span class="skill-icon" aria-hidden="true">⑂</span>
+            <h3>Engineering</h3>
+            <p>Git, GitHub, REST APIs, testing, JWT, RBAC, Agile teamwork</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card reveal">
+        <div>
+          <p class="eyebrow">Let’s connect</p>
+          <h2>Looking for a motivated junior developer?</h2>
           <p>
-            My current public projects and development activity are available
-            through GitHub. Professional email and LinkedIn details can be added
-            here once finalised.
+            I am interested in graduate, junior, internship, and entry-level
+            opportunities in software development, full-stack engineering, AI,
+            and data-driven applications.
           </p>
-        </section>
+        </div>
 
-        <section class="contact-options">
-
+        <div class="contact-actions">
           <a
-            class="contact-option"
+            class="button button-primary"
             href="https://github.com/JeraldBucud"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
-            <div class="icon-box">
-              <ion-icon name="logo-github"></ion-icon>
-            </div>
-
-            <div>
-              <h3 class="h4">GitHub Profile</h3>
-              <p>Explore my repositories, source code and current projects.</p>
-            </div>
-
-            <ion-icon class="contact-arrow" name="arrow-forward-outline"></ion-icon>
+            Contact through GitHub
           </a>
-
-          <div class="contact-option contact-option-static">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div>
-              <h3 class="h4">Brisbane, Australia</h3>
-              <p>Available for suitable opportunities across Australia.</p>
-            </div>
-          </div>
-
-        </section>
-
-      </article>
-
-    </div>
-
+          <a class="button button-secondary" href="#home">Back to top</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="./assets/js/script.js"></script>
-
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-  ></script>
-
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© <span id="current-year"></span> Jerald Christopher Bucud.</p>
+      <p>Built with HTML, CSS, JavaScript, and GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
