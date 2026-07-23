@@ -38,21 +38,21 @@
 
 .core-ring-outer,
 .orbit-track-outer {
-  width: min(70%, 410px);
+  width: min(76%, 450px);
   aspect-ratio: 1;
   border-style: dashed;
 }
 
 .core-ring-middle,
 .orbit-track-middle {
-  width: min(54%, 310px);
+  width: min(58%, 340px);
   aspect-ratio: 1;
   border-color: rgba(106, 228, 218, .25);
 }
 
 .core-ring-inner,
 .orbit-track-inner {
-  width: min(38%, 215px);
+  width: min(41%, 235px);
   aspect-ratio: 1;
   border-color: rgba(174, 140, 255, .32);
 }
@@ -79,15 +79,15 @@
 }
 
 .orbit-track-outer .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(32vw, 185px));
+  transform: rotate(var(--node-angle)) translateX(min(35vw, 205px));
 }
 
 .orbit-track-middle .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(24vw, 140px));
+  transform: rotate(var(--node-angle)) translateX(min(26vw, 153px));
 }
 
 .orbit-track-inner .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(16vw, 92px));
+  transform: rotate(var(--node-angle)) translateX(min(17.5vw, 102px));
 }
 
 .tech-node {
@@ -95,14 +95,14 @@
   top: 0;
   left: 0;
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   place-items: center;
   padding: 0;
   border: 1px solid var(--line-strong);
-  border-radius: 12px;
+  border-radius: 13px;
   background: rgba(11, 14, 11, .96);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+  box-shadow: 0 11px 27px rgba(0, 0, 0, .29);
   cursor: default;
   transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1));
   transition: border-color .2s ease, background .2s ease, box-shadow .25s ease, scale .25s var(--ease);
@@ -126,8 +126,8 @@
 }
 
 .tech-node img {
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   pointer-events: none;
 }
@@ -161,7 +161,7 @@
   z-index: 10;
   border-color: var(--acid);
   background: #111711;
-  box-shadow: 0 14px 34px rgba(201, 255, 69, .10);
+  box-shadow: 0 15px 38px rgba(201, 255, 69, .11);
   outline: none;
   scale: 1.08;
 }
@@ -173,17 +173,17 @@
 }
 
 .system-core {
-  width: 190px;
-  height: 190px;
+  width: 200px;
+  height: 200px;
 }
 
 .system-core strong {
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .core-brand-logo {
-  width: 31px;
-  height: 31px;
+  width: 33px;
+  height: 33px;
   margin-bottom: 7px;
   object-fit: contain;
   opacity: .88;
