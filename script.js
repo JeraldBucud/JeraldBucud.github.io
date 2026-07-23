@@ -208,6 +208,6 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = 'development-core.css';
+  coreStylesheet.href = 'development-core.css?v=20260723-medium-2';
   document.head.append(coreStylesheet);
 }
