@@ -109,7 +109,7 @@ if (hero && orbitOne && orbitTwo && !window.matchMedia('(prefers-reduced-motion:
   }, { passive: true });
 }
 
-// Personal branding and full professional name.
+// Personal branding and accurate career positioning.
 document.title = 'Jerald Christopher Bucud | Software Developer';
 
 document.querySelector('meta[property="og:title"]')?.setAttribute(
@@ -120,10 +120,22 @@ document.querySelector('meta[property="og:title"]')?.setAttribute(
 const textWalker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
 const textNodes = [];
 while (textWalker.nextNode()) textNodes.push(textWalker.currentNode);
+
+const textReplacements = [
+  ['Jerald Bucud', 'Jerald Christopher Bucud'],
+  ['Graduate · Junior · Internship', 'Graduate · Junior · Entry-level'],
+  [
+    'I am open to graduate, junior, internship and entry-level software opportunities in Australia.',
+    'I am open to graduate, junior software developer, full-stack developer and application support opportunities in Australia.',
+  ],
+];
+
 textNodes.forEach((node) => {
-  if (node.nodeValue?.includes('Jerald Bucud')) {
-    node.nodeValue = node.nodeValue.replaceAll('Jerald Bucud', 'Jerald Christopher Bucud');
-  }
+  textReplacements.forEach(([currentText, replacementText]) => {
+    if (node.nodeValue?.includes(currentText)) {
+      node.nodeValue = node.nodeValue.replaceAll(currentText, replacementText);
+    }
+  });
 });
 
 const brandSymbol = document.querySelector('.brand-symbol');
@@ -207,7 +219,7 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = `development-core.css?v=shared-ring-hover-2-${Date.now()}`;
+  coreStylesheet.href = `development-core.css?v=career-positioning-${Date.now()}`;
   document.head.append(coreStylesheet);
 
   const orbitTracks = [...developmentCore.querySelectorAll('.orbit-track')];
