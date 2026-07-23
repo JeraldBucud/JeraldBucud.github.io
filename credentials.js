@@ -29,6 +29,27 @@ window.addEventListener('resize', () => {
 
 if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
+// Use the actual certificate images stored in the portfolio repository.
+const localCertificateImages = {
+  'learn-python-3.png': 'assets/certificates/learn-python-3.webp',
+  'learn-intermediate-python-3.png': 'assets/certificates/learn-intermediate-python-3.webp',
+  'learn-advanced-python-3.png': 'assets/certificates/learn-advanced-python-3.webp',
+  'learn-java.png': 'assets/certificates/learn-java.webp',
+};
+
+document.querySelectorAll('.certificate-image').forEach((image) => {
+  const currentSource = image.getAttribute('src') ?? '';
+  const matchedFilename = Object.keys(localCertificateImages).find((filename) =>
+    currentSource.endsWith(filename),
+  );
+
+  if (!matchedFilename) return;
+
+  image.onerror = null;
+  image.removeAttribute('onerror');
+  image.src = `${localCertificateImages[matchedFilename]}?v=actual-certificates-1`;
+});
+
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {
