@@ -20,6 +20,7 @@
   position: absolute;
   inset: 0;
   z-index: 5;
+  overflow: visible;
 }
 
 .core-ring,
@@ -27,50 +28,59 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 1px solid var(--line);
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
 
 .core-ring {
+  border: 1px solid var(--line);
   pointer-events: none;
 }
 
-.core-ring-outer,
-.orbit-track-outer {
+.core-ring-outer {
   width: min(76%, 450px);
   aspect-ratio: 1;
   border-style: dashed;
 }
 
-.core-ring-middle,
-.orbit-track-middle {
+.core-ring-middle {
   width: min(58%, 340px);
   aspect-ratio: 1;
   border-color: rgba(106, 228, 218, .25);
 }
 
+/* Hide the old decorative inner ring even if cached JavaScript inserts it. */
 .core-ring-inner {
-  width: min(39%, 230px);
-  aspect-ratio: 1;
-  border-color: rgba(174, 140, 255, .32);
-}
-
-.orbit-track-inner {
-  width: min(58%, 340px);
-  aspect-ratio: 1;
-  border-color: transparent;
+  display: none !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .orbit-track {
-  border-color: transparent;
+  border: 0;
+  overflow: visible;
   animation: development-orbit-spin var(--orbit-duration) linear infinite;
 }
 
-.orbit-track-reverse {
+.orbit-track-outer {
+  z-index: 2;
+  width: min(76%, 450px);
+  aspect-ratio: 1;
+}
+
+.orbit-track-middle,
+.orbit-track-inner {
+  z-index: 3;
+  width: min(58%, 340px);
+  aspect-ratio: 1;
+}
+
+.orbit-track-middle {
   animation-direction: reverse;
 }
 
+/* PostgreSQL and GitHub share the second logo orbit with a fixed offset. */
 .orbit-track-inner {
   --orbit-duration: 29s !important;
   animation-name: development-orbit-spin-offset;
@@ -78,6 +88,7 @@
 }
 
 @keyframes development-orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
@@ -90,8 +101,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1;
   width: 0;
   height: 0;
+  overflow: visible;
+}
+
+.orbit-position:hover,
+.orbit-position:focus-within {
+  z-index: 100;
 }
 
 .orbit-track-outer .orbit-position {
@@ -112,13 +130,19 @@
   height: 50px;
   place-items: center;
   padding: 0;
+  overflow: visible;
   border: 1px solid var(--line-strong);
   border-radius: 13px;
-  background: rgba(11, 14, 11, .96);
+  background: rgba(11, 14, 11, .98);
   box-shadow: 0 11px 27px rgba(0, 0, 0, .29);
+  color: var(--text);
   cursor: default;
   transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1));
-  transition: border-color .2s ease, background .2s ease, box-shadow .25s ease, scale .25s var(--ease);
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .25s ease,
+    scale .25s var(--ease);
 }
 
 .orbit-track-inner .tech-node {
@@ -131,10 +155,11 @@
   width: 100%;
   height: 100%;
   place-items: center;
+  overflow: visible;
   animation: development-orbit-counter-spin var(--orbit-duration) linear infinite reverse;
 }
 
-.orbit-track-reverse .tech-node-inner,
+.orbit-track-middle .tech-node-inner,
 .orbit-track-inner .tech-node-inner {
   animation-direction: normal;
 }
@@ -144,7 +169,20 @@
 }
 
 @keyframes development-orbit-counter-spin {
+  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Stop the moving target while the visitor reads its label. */
+.orbit-track:hover,
+.orbit-track:focus-within {
+  z-index: 30;
+  animation-play-state: paused;
+}
+
+.orbit-track:hover .tech-node-inner,
+.orbit-track:focus-within .tech-node-inner {
+  animation-play-state: paused;
 }
 
 .tech-node img {
@@ -152,6 +190,7 @@
   height: 29px;
   object-fit: contain;
   pointer-events: none;
+  transition: filter .2s ease, transform .2s ease;
 }
 
 .tech-node-monochrome img {
@@ -160,37 +199,57 @@
 
 .tech-label {
   position: absolute;
-  top: calc(100% + 7px);
+  top: calc(100% + 9px);
   left: 50%;
+  z-index: 999;
   width: max-content;
-  max-width: 112px;
-  padding: 4px 6px;
-  border: 1px solid var(--line);
-  background: #0b0e0b;
-  color: var(--muted);
+  max-width: 130px;
+  padding: 5px 8px;
+  border: 1px solid var(--acid);
+  background: #101610;
+  color: var(--text);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .42);
   font-family: var(--font-mono);
-  font-size: 7px;
-  letter-spacing: .06em;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  line-height: 1.2;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   text-transform: uppercase;
   transform: translate(-50%, -4px);
-  transition: opacity .2s ease, transform .2s ease;
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
+  white-space: nowrap;
 }
 
 .tech-node:hover,
 .tech-node:focus-visible {
-  z-index: 10;
+  z-index: 100;
   border-color: var(--acid);
-  background: #111711;
-  box-shadow: 0 15px 38px rgba(201, 255, 69, .11);
+  background: #172017;
+  box-shadow:
+    0 0 0 3px rgba(201, 255, 69, .10),
+    0 17px 42px rgba(201, 255, 69, .15);
   outline: none;
-  scale: 1.08;
+  scale: 1.14;
+}
+
+.tech-node:hover img,
+.tech-node:focus-visible img {
+  filter: drop-shadow(0 0 8px rgba(201, 255, 69, .42));
+  transform: scale(1.05);
+}
+
+.tech-node-monochrome:hover img,
+.tech-node-monochrome:focus-visible img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(201, 255, 69, .42));
 }
 
 .tech-node:hover .tech-label,
 .tech-node:focus-visible .tech-label {
   opacity: 1;
+  visibility: visible;
   transform: translate(-50%, 0);
 }
 
@@ -256,8 +315,23 @@
 
 @media (max-width: 520px) {
   .brand-role { display: none; }
-  .tech-node { width: 36px; height: 36px; border-radius: 10px; }
-  .tech-node img { width: 20px; height: 20px; }
+
+  .tech-node {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .tech-node img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tech-label {
+    top: calc(100% + 7px);
+    padding: 4px 6px;
+    font-size: 7px;
+  }
 
   .orbit-track-outer .orbit-position {
     transform: rotate(var(--node-angle)) translateX(min(30vw, 138px));
