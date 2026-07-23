@@ -1,0 +1,261 @@
+/*
+  Phase 1 portfolio refinements.
+  Keeps the established visual direction while improving hierarchy,
+  evidence clarity, contact actions and readability.
+*/
+
+.section {
+  padding-block: 112px;
+}
+
+.hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.hero-socials a {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .07em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+  color: var(--acid);
+}
+
+.metric-role {
+  max-width: 100%;
+  font-size: clamp(25px, 2.6vw, 39px);
+  line-height: 1.05;
+}
+
+.project-disclosure {
+  max-width: 720px;
+  margin: 28px 0 0;
+  padding: 20px;
+  border-left: 2px solid var(--acid);
+  background: rgba(201, 255, 69, .035);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.portfolio-pipeline {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  padding: 42px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, rgba(201, 255, 69, .055), transparent 54%),
+    #0b0e0b;
+}
+
+.pipeline-copy h3 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+
+.pipeline-copy p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.pipeline-checklist {
+  display: grid;
+  align-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+.pipeline-checklist li {
+  position: relative;
+  padding: 18px 12px 18px 34px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .035em;
+  line-height: 1.6;
+}
+
+.pipeline-checklist li::before {
+  content: '✓';
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  color: var(--acid);
+}
+
+.learning-heading {
+  margin-top: 82px;
+}
+
+.learning-grid .support-card {
+  min-height: 330px;
+}
+
+.credentials-callout {
+  background: linear-gradient(180deg, rgba(201,255,69,.025), transparent);
+}
+
+.credentials-callout .academic-note {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  gap: 34px;
+  align-items: center;
+  padding: 42px;
+  border: 1px solid var(--line-strong);
+  background: #0b0e0b;
+}
+
+.credentials-callout .academic-note-index {
+  color: var(--line-strong);
+  font-family: var(--font-display);
+  font-size: 58px;
+  letter-spacing: -.07em;
+}
+
+.credentials-callout h2 {
+  margin: 15px 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(31px, 4vw, 50px);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+
+.credentials-callout .academic-note p:last-child {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.credentials-callout .back-link {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 1px solid var(--acid);
+  color: var(--acid);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s ease, color .2s ease;
+}
+
+.credentials-callout .back-link:hover,
+.credentials-callout .back-link:focus-visible {
+  background: var(--acid);
+  color: #080a07;
+}
+
+.contact-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-link {
+  min-height: 180px;
+  border-right: 1px solid var(--line);
+}
+
+.contact-link:nth-child(2n) {
+  border-right: 0;
+}
+
+.contact-link:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.contact-link strong {
+  overflow-wrap: anywhere;
+}
+
+.stack-group p,
+.metric-label,
+.metric-kicker,
+.case-meta span,
+.support-status,
+.tech-pills li,
+.timeline-type,
+.contact-link span,
+.footer-inner span,
+.footer-inner p,
+.footer-inner a {
+  font-size: max(9px, .625rem);
+}
+
+@media (max-width: 960px) {
+  .portfolio-pipeline,
+  .credentials-callout .academic-note {
+    grid-template-columns: 1fr;
+  }
+
+  .credentials-callout .academic-note-index {
+    font-size: 46px;
+  }
+
+  .credentials-callout .back-link {
+    justify-self: start;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-link,
+  .contact-link:nth-child(2n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-link:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 84px;
+  }
+
+  .hero-socials {
+    gap: 18px;
+  }
+
+  .portfolio-pipeline {
+    gap: 34px;
+    padding: 28px 24px;
+  }
+
+  .credentials-callout .academic-note {
+    gap: 22px;
+    padding: 28px 24px;
+  }
+
+  .contact-link {
+    min-height: 138px;
+  }
+}
