@@ -196,7 +196,6 @@ if (developmentCore) {
     <div class="map-grid" aria-hidden="true"></div>
     <div class="core-ring core-ring-outer" aria-hidden="true"></div>
     <div class="core-ring core-ring-middle" aria-hidden="true"></div>
-    <div class="core-ring core-ring-inner" aria-hidden="true"></div>
     <div class="technology-orbits">${technologyRings.map(renderRing).join('')}</div>
     <div class="system-core">
       <img class="core-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt="">
@@ -208,6 +207,6 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = `development-core.css?v=overlap-fix-1-${Date.now()}`;
+  coreStylesheet.href = `development-core.css?v=two-ring-clean-${Date.now()}`;
   document.head.append(coreStylesheet);
 }
