@@ -207,6 +207,84 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = `development-core.css?v=two-ring-clean-${Date.now()}`;
+  coreStylesheet.href = `development-core.css?v=shared-ring-hover-2-${Date.now()}`;
   document.head.append(coreStylesheet);
+
+  const orbitTracks = [...developmentCore.querySelectorAll('.orbit-track')];
+  const outerTrack = developmentCore.querySelector('.orbit-track-outer');
+  const secondRingTracks = [
+    developmentCore.querySelector('.orbit-track-middle'),
+    developmentCore.querySelector('.orbit-track-inner'),
+  ].filter(Boolean);
+  const techNodes = [...developmentCore.querySelectorAll('.tech-node')];
+
+  // Transparent orbit layers must not block the logo cards beneath them.
+  orbitTracks.forEach((track) => {
+    track.style.pointerEvents = 'none';
+  });
+  techNodes.forEach((node) => {
+    node.style.pointerEvents = 'auto';
+  });
+
+  const setTracksPaused = (tracks, paused) => {
+    tracks.filter(Boolean).forEach((track) => {
+      track.style.animationPlayState = paused ? 'paused' : 'running';
+      track.querySelectorAll('.tech-node-inner').forEach((inner) => {
+        inner.style.animationPlayState = paused ? 'paused' : 'running';
+      });
+    });
+  };
+
+  const setNodeActive = (node, active) => {
+    const position = node.closest('.orbit-position');
+    const label = node.querySelector('.tech-label');
+    const image = node.querySelector('img');
+
+    if (position) position.style.zIndex = active ? '200' : '';
+    node.style.zIndex = active ? '200' : '';
+    node.style.borderColor = active ? 'var(--acid)' : '';
+    node.style.background = active ? '#172017' : '';
+    node.style.boxShadow = active
+      ? '0 0 0 3px rgba(201, 255, 69, .10), 0 17px 42px rgba(201, 255, 69, .15)'
+      : '';
+    node.style.scale = active ? '1.14' : '';
+
+    if (label) {
+      label.style.opacity = active ? '1' : '';
+      label.style.visibility = active ? 'visible' : '';
+      label.style.transform = active ? 'translate(-50%, 0)' : '';
+    }
+
+    if (image) {
+      const monochrome = node.classList.contains('tech-node-monochrome');
+      image.style.filter = active
+        ? `${monochrome ? 'brightness(0) invert(1) ' : ''}drop-shadow(0 0 8px rgba(201, 255, 69, .42))`
+        : '';
+      image.style.transform = active ? 'scale(1.05)' : '';
+    }
+  };
+
+  const getTracksForNode = (node) => {
+    const track = node.closest('.orbit-track');
+    const isSecondRing = track?.classList.contains('orbit-track-middle')
+      || track?.classList.contains('orbit-track-inner');
+    return isSecondRing ? secondRingTracks : [outerTrack].filter(Boolean);
+  };
+
+  const activate = (node) => {
+    setTracksPaused(getTracksForNode(node), true);
+    setNodeActive(node, true);
+  };
+
+  const deactivate = (node) => {
+    setNodeActive(node, false);
+    setTracksPaused(getTracksForNode(node), false);
+  };
+
+  techNodes.forEach((node) => {
+    node.addEventListener('pointerenter', () => activate(node));
+    node.addEventListener('pointerleave', () => deactivate(node));
+    node.addEventListener('focus', () => activate(node));
+    node.addEventListener('blur', () => deactivate(node));
+  });
 }
