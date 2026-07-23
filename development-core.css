@@ -49,17 +49,14 @@
   border-color: rgba(106, 228, 218, .25);
 }
 
-/* Hide the old decorative inner ring even if cached JavaScript inserts it. */
 .core-ring-inner {
   display: none !important;
-  border: 0 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
 }
 
 .orbit-track {
-  border: 0;
   overflow: visible;
+  border: 0;
+  pointer-events: none;
   animation: development-orbit-spin var(--orbit-duration) linear infinite;
 }
 
@@ -74,27 +71,14 @@
   z-index: 3;
   width: min(58%, 340px);
   aspect-ratio: 1;
-}
-
-.orbit-track-middle {
-  animation-direction: reverse;
-}
-
-/* PostgreSQL and GitHub share the second logo orbit with a fixed offset. */
-.orbit-track-inner {
   --orbit-duration: 29s !important;
-  animation-name: development-orbit-spin-offset;
+  animation-name: development-orbit-spin;
   animation-direction: reverse;
 }
 
 @keyframes development-orbit-spin {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes development-orbit-spin-offset {
-  from { transform: translate(-50%, -50%) rotate(45deg); }
-  to { transform: translate(-50%, -50%) rotate(405deg); }
 }
 
 .orbit-position {
@@ -109,12 +93,23 @@
 
 .orbit-position:hover,
 .orbit-position:focus-within {
-  z-index: 100;
+  z-index: 200;
 }
 
 .orbit-track-outer .orbit-position {
   transform: rotate(var(--node-angle)) translateX(min(36vw, 210px));
 }
+
+/*
+  Six evenly spaced positions on the second visual ring:
+  React, Next.js, Spring Boot, FastAPI, PostgreSQL and GitHub.
+*/
+.orbit-track-middle .orbit-position:nth-child(1) { --node-angle: -90deg !important; }
+.orbit-track-middle .orbit-position:nth-child(2) { --node-angle: -30deg !important; }
+.orbit-track-middle .orbit-position:nth-child(3) { --node-angle: 30deg !important; }
+.orbit-track-middle .orbit-position:nth-child(4) { --node-angle: 90deg !important; }
+.orbit-track-inner .orbit-position:nth-child(1) { --node-angle: 150deg !important; }
+.orbit-track-inner .orbit-position:nth-child(2) { --node-angle: 210deg !important; }
 
 .orbit-track-middle .orbit-position,
 .orbit-track-inner .orbit-position {
@@ -137,16 +132,13 @@
   box-shadow: 0 11px 27px rgba(0, 0, 0, .29);
   color: var(--text);
   cursor: default;
+  pointer-events: auto;
   transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1));
   transition:
     border-color .2s ease,
     background .2s ease,
     box-shadow .25s ease,
     scale .25s var(--ease);
-}
-
-.orbit-track-inner .tech-node {
-  transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1 - 45deg));
 }
 
 .tech-node-inner {
@@ -162,9 +154,6 @@
 .orbit-track-middle .tech-node-inner,
 .orbit-track-inner .tech-node-inner {
   animation-direction: normal;
-}
-
-.orbit-track-inner .tech-node-inner {
   animation-duration: 29s;
 }
 
@@ -173,7 +162,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Stop the moving target while the visitor reads its label. */
 .orbit-track:hover,
 .orbit-track:focus-within {
   z-index: 30;
@@ -225,7 +213,7 @@
 
 .tech-node:hover,
 .tech-node:focus-visible {
-  z-index: 100;
+  z-index: 200;
   border-color: var(--acid);
   background: #172017;
   box-shadow:
@@ -357,9 +345,5 @@
   .orbit-track,
   .tech-node-inner {
     animation: none !important;
-  }
-
-  .orbit-track-inner {
-    transform: translate(-50%, -50%) rotate(45deg);
   }
 }
