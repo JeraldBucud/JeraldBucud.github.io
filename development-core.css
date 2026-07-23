@@ -50,11 +50,16 @@
   border-color: rgba(106, 228, 218, .25);
 }
 
-.core-ring-inner,
-.orbit-track-inner {
-  width: min(41%, 235px);
+.core-ring-inner {
+  width: min(39%, 230px);
   aspect-ratio: 1;
   border-color: rgba(174, 140, 255, .32);
+}
+
+.orbit-track-inner {
+  width: min(58%, 340px);
+  aspect-ratio: 1;
+  border-color: transparent;
 }
 
 .orbit-track {
@@ -66,8 +71,19 @@
   animation-direction: reverse;
 }
 
+.orbit-track-inner {
+  --orbit-duration: 29s !important;
+  animation-name: development-orbit-spin-offset;
+  animation-direction: reverse;
+}
+
 @keyframes development-orbit-spin {
   to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes development-orbit-spin-offset {
+  from { transform: translate(-50%, -50%) rotate(45deg); }
+  to { transform: translate(-50%, -50%) rotate(405deg); }
 }
 
 .orbit-position {
@@ -79,15 +95,12 @@
 }
 
 .orbit-track-outer .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(35vw, 205px));
+  transform: rotate(var(--node-angle)) translateX(min(36vw, 210px));
 }
 
-.orbit-track-middle .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(26vw, 153px));
-}
-
+.orbit-track-middle .orbit-position,
 .orbit-track-inner .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(17.5vw, 102px));
+  transform: rotate(var(--node-angle)) translateX(min(25.5vw, 150px));
 }
 
 .tech-node {
@@ -95,8 +108,8 @@
   top: 0;
   left: 0;
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   place-items: center;
   padding: 0;
   border: 1px solid var(--line-strong);
@@ -108,6 +121,10 @@
   transition: border-color .2s ease, background .2s ease, box-shadow .25s ease, scale .25s var(--ease);
 }
 
+.orbit-track-inner .tech-node {
+  transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1 - 45deg));
+}
+
 .tech-node-inner {
   position: relative;
   display: grid;
@@ -117,8 +134,13 @@
   animation: development-orbit-counter-spin var(--orbit-duration) linear infinite reverse;
 }
 
-.orbit-track-reverse .tech-node-inner {
+.orbit-track-reverse .tech-node-inner,
+.orbit-track-inner .tech-node-inner {
   animation-direction: normal;
+}
+
+.orbit-track-inner .tech-node-inner {
+  animation-duration: 29s;
 }
 
 @keyframes development-orbit-counter-spin {
@@ -126,8 +148,8 @@
 }
 
 .tech-node img {
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   object-fit: contain;
   pointer-events: none;
 }
@@ -173,24 +195,24 @@
 }
 
 .system-core {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 }
 
 .system-core strong {
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .core-brand-logo {
-  width: 33px;
-  height: 33px;
-  margin-bottom: 7px;
+  width: 31px;
+  height: 31px;
+  margin-bottom: 6px;
   object-fit: contain;
   opacity: .88;
 }
 
 .core-count {
-  margin-top: 10px;
+  margin-top: 9px;
   color: var(--acid);
   font-family: var(--font-mono);
   font-size: 7px;
@@ -214,24 +236,21 @@
   }
 
   .orbit-track-outer .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(31vw, 165px));
+    transform: rotate(var(--node-angle)) translateX(min(32vw, 170px));
   }
 
-  .orbit-track-middle .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(23vw, 124px));
-  }
-
+  .orbit-track-middle .orbit-position,
   .orbit-track-inner .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(15vw, 80px));
+    transform: rotate(var(--node-angle)) translateX(min(22vw, 116px));
   }
 
   .system-core {
-    width: 170px;
-    height: 170px;
+    width: 148px;
+    height: 148px;
   }
 
   .system-core strong {
-    font-size: 21px;
+    font-size: 19px;
   }
 }
 
@@ -244,28 +263,29 @@
     transform: rotate(var(--node-angle)) translateX(min(30vw, 138px));
   }
 
-  .orbit-track-middle .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(22vw, 102px));
-  }
-
+  .orbit-track-middle .orbit-position,
   .orbit-track-inner .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(14vw, 66px));
+    transform: rotate(var(--node-angle)) translateX(min(20vw, 94px));
   }
 
   .system-core {
-    width: 146px;
-    height: 146px;
+    width: 120px;
+    height: 120px;
   }
 
-  .system-core strong { font-size: 18px; }
-  .core-brand-logo { width: 25px; height: 25px; }
-  .core-eyebrow { font-size: 7px; }
-  .core-count { margin-top: 7px; font-size: 6px; }
+  .system-core strong { font-size: 16px; }
+  .core-brand-logo { width: 22px; height: 22px; }
+  .core-eyebrow { font-size: 6px; }
+  .core-count { margin-top: 6px; font-size: 5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .orbit-track,
   .tech-node-inner {
     animation: none !important;
+  }
+
+  .orbit-track-inner {
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 }
