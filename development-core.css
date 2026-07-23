@@ -38,21 +38,21 @@
 
 .core-ring-outer,
 .orbit-track-outer {
-  width: min(88%, 540px);
+  width: min(70%, 410px);
   aspect-ratio: 1;
   border-style: dashed;
 }
 
 .core-ring-middle,
 .orbit-track-middle {
-  width: min(66%, 405px);
+  width: min(54%, 310px);
   aspect-ratio: 1;
   border-color: rgba(106, 228, 218, .25);
 }
 
 .core-ring-inner,
 .orbit-track-inner {
-  width: min(45%, 275px);
+  width: min(38%, 215px);
   aspect-ratio: 1;
   border-color: rgba(174, 140, 255, .32);
 }
@@ -79,15 +79,15 @@
 }
 
 .orbit-track-outer .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(44vw, 270px));
+  transform: rotate(var(--node-angle)) translateX(min(32vw, 185px));
 }
 
 .orbit-track-middle .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(33vw, 202px));
+  transform: rotate(var(--node-angle)) translateX(min(24vw, 140px));
 }
 
 .orbit-track-inner .orbit-position {
-  transform: rotate(var(--node-angle)) translateX(min(22.5vw, 137px));
+  transform: rotate(var(--node-angle)) translateX(min(16vw, 92px));
 }
 
 .tech-node {
@@ -95,14 +95,14 @@
   top: 0;
   left: 0;
   display: grid;
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   padding: 0;
   border: 1px solid var(--line-strong);
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(11, 14, 11, .96);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .30);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
   cursor: default;
   transform: translate(-50%, -50%) rotate(calc(var(--node-angle) * -1));
   transition: border-color .2s ease, background .2s ease, box-shadow .25s ease, scale .25s var(--ease);
@@ -126,8 +126,8 @@
 }
 
 .tech-node img {
-  width: 34px;
-  height: 34px;
+  width: 27px;
+  height: 27px;
   object-fit: contain;
   pointer-events: none;
 }
@@ -138,17 +138,17 @@
 
 .tech-label {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 7px);
   left: 50%;
   width: max-content;
-  max-width: 120px;
-  padding: 4px 7px;
+  max-width: 112px;
+  padding: 4px 6px;
   border: 1px solid var(--line);
   background: #0b0e0b;
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 7px;
-  letter-spacing: .07em;
+  letter-spacing: .06em;
   opacity: 0;
   pointer-events: none;
   text-transform: uppercase;
@@ -161,9 +161,9 @@
   z-index: 10;
   border-color: var(--acid);
   background: #111711;
-  box-shadow: 0 16px 42px rgba(201, 255, 69, .12);
+  box-shadow: 0 14px 34px rgba(201, 255, 69, .10);
   outline: none;
-  scale: 1.12;
+  scale: 1.08;
 }
 
 .tech-node:hover .tech-label,
@@ -172,19 +172,28 @@
   transform: translate(-50%, 0);
 }
 
+.system-core {
+  width: 190px;
+  height: 190px;
+}
+
+.system-core strong {
+  font-size: 24px;
+}
+
 .core-brand-logo {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 8px;
+  width: 31px;
+  height: 31px;
+  margin-bottom: 7px;
   object-fit: contain;
   opacity: .88;
 }
 
 .core-count {
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--acid);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 7px;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
@@ -194,49 +203,64 @@
   .personal-brand-logo { width: 31px; height: 31px; }
 
   .tech-node {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
   }
 
   .tech-node img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   .orbit-track-outer .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(42vw, 238px));
+    transform: rotate(var(--node-angle)) translateX(min(31vw, 165px));
   }
 
   .orbit-track-middle .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(31vw, 176px));
+    transform: rotate(var(--node-angle)) translateX(min(23vw, 124px));
   }
 
   .orbit-track-inner .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(21vw, 118px));
+    transform: rotate(var(--node-angle)) translateX(min(15vw, 80px));
+  }
+
+  .system-core {
+    width: 170px;
+    height: 170px;
+  }
+
+  .system-core strong {
+    font-size: 21px;
   }
 }
 
 @media (max-width: 520px) {
   .brand-role { display: none; }
-  .tech-node { width: 42px; height: 42px; }
-  .tech-node img { width: 24px; height: 24px; }
+  .tech-node { width: 36px; height: 36px; border-radius: 10px; }
+  .tech-node img { width: 20px; height: 20px; }
 
   .orbit-track-outer .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(43vw, 195px));
+    transform: rotate(var(--node-angle)) translateX(min(30vw, 138px));
   }
 
   .orbit-track-middle .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(32vw, 145px));
+    transform: rotate(var(--node-angle)) translateX(min(22vw, 102px));
   }
 
   .orbit-track-inner .orbit-position {
-    transform: rotate(var(--node-angle)) translateX(min(22vw, 100px));
+    transform: rotate(var(--node-angle)) translateX(min(14vw, 66px));
   }
 
-  .system-core { width: 180px; height: 180px; }
-  .system-core strong { font-size: 23px; }
-  .core-brand-logo { width: 30px; height: 30px; }
+  .system-core {
+    width: 146px;
+    height: 146px;
+  }
+
+  .system-core strong { font-size: 18px; }
+  .core-brand-logo { width: 25px; height: 25px; }
+  .core-eyebrow { font-size: 7px; }
+  .core-count { margin-top: 7px; font-size: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
