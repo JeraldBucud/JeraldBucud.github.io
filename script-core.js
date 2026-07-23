@@ -8,7 +8,6 @@ const revealElements = document.querySelectorAll('.reveal');
 const sections = [...document.querySelectorAll('main section[id]')];
 const cursorGlow = document.querySelector('.cursor-glow');
 const yearElement = document.querySelector('#current-year');
-const isCredentialsPage = body.classList.contains('credentials-page');
 
 const closeMenu = () => {
   navLinks?.classList.remove('open');
@@ -92,8 +91,9 @@ if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
 const hero = document.querySelector('.hero');
 const orbitOne = document.querySelector('.hero-orbit-one');
 const orbitTwo = document.querySelector('.hero-orbit-two');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (hero && orbitOne && orbitTwo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (hero && orbitOne && orbitTwo && !reducedMotion) {
   let ticking = false;
 
   const updateHeroMotion = () => {
@@ -110,65 +110,6 @@ if (hero && orbitOne && orbitTwo && !window.matchMedia('(prefers-reduced-motion:
   }, { passive: true });
 }
 
-// Personal branding and accurate career positioning.
-document.title = isCredentialsPage
-  ? 'Credentials | Jerald Christopher Bucud'
-  : 'Jerald Christopher Bucud | Software Developer';
-
-document.querySelector('meta[property="og:title"]')?.setAttribute(
-  'content',
-  isCredentialsPage
-    ? 'Credentials | Jerald Christopher Bucud'
-    : 'Jerald Christopher Bucud | Software Developer',
-);
-
-const textWalker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
-const textNodes = [];
-while (textWalker.nextNode()) textNodes.push(textWalker.currentNode);
-
-const textReplacements = [
-  ['Jerald Bucud', 'Jerald Christopher Bucud'],
-  ['Graduate · Junior · Internship', 'Graduate · Junior · Entry-level'],
-  [
-    'I am open to graduate, junior, internship and entry-level software opportunities in Australia.',
-    'I am open to graduate, junior software developer, full-stack developer and application support opportunities in Australia.',
-  ],
-];
-
-textNodes.forEach((node) => {
-  textReplacements.forEach(([currentText, replacementText]) => {
-    if (node.nodeValue?.includes(currentText)) {
-      node.nodeValue = node.nodeValue.replaceAll(currentText, replacementText);
-    }
-  });
-});
-
-const brandSymbol = document.querySelector('.brand-symbol');
-const brandRole = document.querySelector('.brand-role');
-if (brandSymbol) {
-  brandSymbol.innerHTML = '<img class="personal-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt="">';
-}
-if (brandRole) {
-  brandRole.textContent = 'Jerald Christopher Bucud';
-}
-
-if (navLinks && !navLinks.querySelector('a[href$="credentials.html"]')) {
-  const credentialsLink = document.createElement('a');
-  credentialsLink.href = 'credentials.html';
-  credentialsLink.textContent = 'Credentials';
-
-  const contactLink = navLinks.querySelector('.nav-cta');
-  if (contactLink) {
-    navLinks.insertBefore(credentialsLink, contactLink);
-  } else {
-    navLinks.append(credentialsLink);
-  }
-}
-
-const favicon = document.querySelector('link[rel="icon"]');
-if (favicon) favicon.setAttribute('href', 'assets/branding/jaycee-bucud-black.svg');
-
-// Development core: only technologies used in projects or coursework.
 const developmentCore = document.querySelector('.system-map');
 
 if (developmentCore) {
@@ -189,16 +130,15 @@ if (developmentCore) {
       duration: '29s',
       technologies: [
         { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-        { name: 'Next.js', icon: 'assets/icons/nextjs.svg', monochrome: true },
         { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' },
-        { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
+        { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
       ],
     },
     {
       className: 'orbit-track orbit-track-inner',
       duration: '23s',
       technologies: [
-        { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+        { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
         { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', monochrome: true },
       ],
     },
@@ -231,37 +171,18 @@ if (developmentCore) {
       <img class="core-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt="">
       <span class="core-eyebrow">Development core</span>
       <strong>BUILD<br>CONNECT<br>IMPROVE</strong>
-      <span class="core-count">11 technologies</span>
+      <span class="core-count">10 technologies</span>
     </div>
   `;
 
-  const coreStylesheet = document.createElement('link');
-  coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = `development-core.css?v=credentials-navigation-${Date.now()}`;
-  document.head.append(coreStylesheet);
-
   const orbitTracks = [...developmentCore.querySelectorAll('.orbit-track')];
-  const outerTrack = developmentCore.querySelector('.orbit-track-outer');
-  const secondRingTracks = [
-    developmentCore.querySelector('.orbit-track-middle'),
-    developmentCore.querySelector('.orbit-track-inner'),
-  ].filter(Boolean);
   const techNodes = [...developmentCore.querySelectorAll('.tech-node')];
 
-  // Transparent orbit layers must not block the logo cards beneath them.
-  orbitTracks.forEach((track) => {
-    track.style.pointerEvents = 'none';
-  });
-  techNodes.forEach((node) => {
-    node.style.pointerEvents = 'auto';
-  });
-
-  const setTracksPaused = (tracks, paused) => {
-    tracks.filter(Boolean).forEach((track) => {
-      track.style.animationPlayState = paused ? 'paused' : 'running';
-      track.querySelectorAll('.tech-node-inner').forEach((inner) => {
-        inner.style.animationPlayState = paused ? 'paused' : 'running';
-      });
+  const setTrackPaused = (track, paused) => {
+    if (!track) return;
+    track.style.animationPlayState = paused ? 'paused' : 'running';
+    track.querySelectorAll('.tech-node-inner').forEach((inner) => {
+      inner.style.animationPlayState = paused ? 'paused' : 'running';
     });
   };
 
@@ -294,27 +215,27 @@ if (developmentCore) {
     }
   };
 
-  const getTracksForNode = (node) => {
-    const track = node.closest('.orbit-track');
-    const isSecondRing = track?.classList.contains('orbit-track-middle')
-      || track?.classList.contains('orbit-track-inner');
-    return isSecondRing ? secondRingTracks : [outerTrack].filter(Boolean);
-  };
-
-  const activate = (node) => {
-    setTracksPaused(getTracksForNode(node), true);
-    setNodeActive(node, true);
-  };
-
-  const deactivate = (node) => {
-    setNodeActive(node, false);
-    setTracksPaused(getTracksForNode(node), false);
-  };
+  orbitTracks.forEach((track) => {
+    track.style.pointerEvents = 'none';
+  });
 
   techNodes.forEach((node) => {
-    node.addEventListener('pointerenter', () => activate(node));
-    node.addEventListener('pointerleave', () => deactivate(node));
-    node.addEventListener('focus', () => activate(node));
-    node.addEventListener('blur', () => deactivate(node));
+    node.style.pointerEvents = 'auto';
+    const track = node.closest('.orbit-track');
+
+    const activate = () => {
+      setTrackPaused(track, true);
+      setNodeActive(node, true);
+    };
+
+    const deactivate = () => {
+      setNodeActive(node, false);
+      setTrackPaused(track, false);
+    };
+
+    node.addEventListener('pointerenter', activate);
+    node.addEventListener('pointerleave', deactivate);
+    node.addEventListener('focus', activate);
+    node.addEventListener('blur', deactivate);
   });
 }
