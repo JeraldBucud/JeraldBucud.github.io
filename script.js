@@ -8,6 +8,7 @@ const revealElements = document.querySelectorAll('.reveal');
 const sections = [...document.querySelectorAll('main section[id]')];
 const cursorGlow = document.querySelector('.cursor-glow');
 const yearElement = document.querySelector('#current-year');
+const isCredentialsPage = body.classList.contains('credentials-page');
 
 const closeMenu = () => {
   navLinks?.classList.remove('open');
@@ -110,11 +111,15 @@ if (hero && orbitOne && orbitTwo && !window.matchMedia('(prefers-reduced-motion:
 }
 
 // Personal branding and accurate career positioning.
-document.title = 'Jerald Christopher Bucud | Software Developer';
+document.title = isCredentialsPage
+  ? 'Credentials | Jerald Christopher Bucud'
+  : 'Jerald Christopher Bucud | Software Developer';
 
 document.querySelector('meta[property="og:title"]')?.setAttribute(
   'content',
-  'Jerald Christopher Bucud | Software Developer',
+  isCredentialsPage
+    ? 'Credentials | Jerald Christopher Bucud'
+    : 'Jerald Christopher Bucud | Software Developer',
 );
 
 const textWalker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
@@ -145,6 +150,19 @@ if (brandSymbol) {
 }
 if (brandRole) {
   brandRole.textContent = 'Jerald Christopher Bucud';
+}
+
+if (navLinks && !navLinks.querySelector('a[href$="credentials.html"]')) {
+  const credentialsLink = document.createElement('a');
+  credentialsLink.href = 'credentials.html';
+  credentialsLink.textContent = 'Credentials';
+
+  const contactLink = navLinks.querySelector('.nav-cta');
+  if (contactLink) {
+    navLinks.insertBefore(credentialsLink, contactLink);
+  } else {
+    navLinks.append(credentialsLink);
+  }
 }
 
 const favicon = document.querySelector('link[rel="icon"]');
@@ -219,7 +237,7 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = `development-core.css?v=career-positioning-${Date.now()}`;
+  coreStylesheet.href = `development-core.css?v=credentials-navigation-${Date.now()}`;
   document.head.append(coreStylesheet);
 
   const orbitTracks = [...developmentCore.querySelectorAll('.orbit-track')];
