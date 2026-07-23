@@ -208,6 +208,6 @@ if (developmentCore) {
 
   const coreStylesheet = document.createElement('link');
   coreStylesheet.rel = 'stylesheet';
-  coreStylesheet.href = 'development-core.css?v=20260723-medium-2';
+  coreStylesheet.href = `development-core.css?v=overlap-fix-1-${Date.now()}`;
   document.head.append(coreStylesheet);
 }
