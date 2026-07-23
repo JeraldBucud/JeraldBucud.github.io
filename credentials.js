@@ -5,7 +5,6 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const yearElement = document.querySelector('#current-year');
 const cursorGlow = document.querySelector('.cursor-glow');
-const revealElements = document.querySelectorAll('.reveal');
 
 const closeMenu = () => {
   navLinks?.classList.remove('open');
@@ -29,6 +28,118 @@ window.addEventListener('resize', () => {
 
 if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
+const academicStylesheet = document.createElement('link');
+academicStylesheet.rel = 'stylesheet';
+academicStylesheet.href = 'academic-credentials.css?v=cqu-formal-qualifications-1';
+document.head.append(academicStylesheet);
+
+const credentialsMain = document.querySelector('.credentials-main');
+const credentialsHero = document.querySelector('.credentials-hero');
+
+if (credentialsMain && credentialsHero && !document.querySelector('#formal-qualifications')) {
+  const formalSection = document.createElement('section');
+  formalSection.className = 'formal-qualifications-section';
+  formalSection.id = 'formal-qualifications';
+  formalSection.innerHTML = `
+    <div class="shell">
+      <div class="formal-qualification-heading reveal">
+        <div>
+          <p class="section-code">01 / FORMAL QUALIFICATIONS</p>
+          <h2>CQUniversity qualifications completed <em>with Distinction.</em></h2>
+        </div>
+        <p>
+          Formal Australian Qualifications Framework awards completed as part of my postgraduate information-technology pathway.
+        </p>
+      </div>
+
+      <div class="formal-qualification-grid">
+        <article class="formal-qualification-card reveal">
+          <div class="testamur-frame">
+            <span class="testamur-loading">Loading Graduate Diploma testamur…</span>
+            <img class="testamur-image" data-testamur="graduate-diploma" alt="CQUniversity Graduate Diploma of Information Technology with Distinction testamur awarded to Jerald Christopher Bucud" hidden>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-tags"><span>CQUniversity</span><span>AQF</span><span>With Distinction</span></div>
+            <h3>Graduate Diploma of Information Technology</h3>
+            <p class="qualification-issuer">Central Queensland University</p>
+            <p class="qualification-date">Conferred 24 November 2025</p>
+            <p class="qualification-description">
+              A completed postgraduate qualification recognising advanced information-technology study and progression toward the Master of Information Technology.
+            </p>
+            <div class="qualification-actions">
+              <a class="qualification-action" data-testamur-link="graduate-diploma" href="#" target="_blank" rel="noopener noreferrer"><span>Open testamur</span><span>↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="formal-qualification-card reveal">
+          <div class="testamur-frame">
+            <span class="testamur-loading">Loading Graduate Certificate testamur…</span>
+            <img class="testamur-image" data-testamur="graduate-certificate" alt="CQUniversity Graduate Certificate in Information Technology with Distinction testamur awarded to Jerald Christopher Bucud" hidden>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-tags"><span>CQUniversity</span><span>AQF</span><span>With Distinction</span></div>
+            <h3>Graduate Certificate in Information Technology</h3>
+            <p class="qualification-issuer">Central Queensland University</p>
+            <p class="qualification-date">Conferred 28 July 2025</p>
+            <p class="qualification-description">
+              A completed postgraduate qualification establishing a strong foundation across information technology and software-development study.
+            </p>
+            <div class="qualification-actions">
+              <a class="qualification-action" data-testamur-link="graduate-certificate" href="#" target="_blank" rel="noopener noreferrer"><span>Open testamur</span><span>↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  `;
+
+  credentialsHero.insertAdjacentElement('afterend', formalSection);
+}
+
+const summaryValues = document.querySelectorAll('.credentials-summary > div > span');
+if (summaryValues[0]) summaryValues[0].textContent = '09';
+if (summaryValues[1]) summaryValues[1].textContent = '04';
+
+const imageSources = {
+  'graduate-diploma': [
+    'assets/academic/build/gd-00.b64',
+    'assets/academic/build/gd-01.b64',
+    'assets/academic/build/gd-02.b64',
+  ],
+  'graduate-certificate': [
+    'assets/academic/build/gc-00.b64',
+    'assets/academic/build/gc-01.b64',
+    'assets/academic/build/gc-02.b64',
+  ],
+};
+
+const loadTestamur = async (image, paths) => {
+  try {
+    const chunks = await Promise.all(paths.map(async (path) => {
+      const response = await fetch(`${path}?v=cqu-2025-1`);
+      if (!response.ok) throw new Error(`Unable to load ${path}`);
+      return response.text();
+    }));
+
+    const dataUrl = `data:image/webp;base64,${chunks.join('').replace(/\s/g, '')}`;
+    image.src = dataUrl;
+    image.hidden = false;
+    image.parentElement?.querySelector('.testamur-loading')?.remove();
+
+    const link = document.querySelector(`[data-testamur-link="${image.dataset.testamur}"]`);
+    if (link) link.href = dataUrl;
+  } catch (error) {
+    const loading = image.parentElement?.querySelector('.testamur-loading');
+    if (loading) loading.textContent = 'Testamur preview is temporarily unavailable.';
+    console.error(error);
+  }
+};
+
+document.querySelectorAll('[data-testamur]').forEach((image) => {
+  loadTestamur(image, imageSources[image.dataset.testamur]);
+});
+
 // Use the actual certificate images stored in the portfolio repository.
 const localCertificateImages = {
   'learn-python-3.png': 'assets/certificates/learn-python-3.webp',
@@ -49,6 +160,8 @@ document.querySelectorAll('.certificate-image').forEach((image) => {
   image.removeAttribute('onerror');
   image.src = `${localCertificateImages[matchedFilename]}?v=actual-certificates-1`;
 });
+
+const revealElements = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
