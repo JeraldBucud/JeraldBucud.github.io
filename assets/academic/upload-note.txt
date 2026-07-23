@@ -1,0 +1,1 @@
+Credential assets are published for portfolio display and PDF viewing.
