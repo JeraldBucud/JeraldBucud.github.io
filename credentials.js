@@ -114,23 +114,114 @@ const imageSources = {
   ],
 };
 
+const testamurObjectUrls = new Set();
+
+const cleanBase64 = (value) => value
+  .replace(/^data:[^;]+;base64,/, '')
+  .replace(/\s/g, '');
+
+const decodeBase64 = (value) => {
+  const decoded = atob(cleanBase64(value));
+  const bytes = new Uint8Array(decoded.length);
+
+  for (let index = 0; index < decoded.length; index += 1) {
+    bytes[index] = decoded.charCodeAt(index);
+  }
+
+  return bytes;
+};
+
+const mergeByteArrays = (arrays) => {
+  const totalLength = arrays.reduce((total, array) => total + array.length, 0);
+  const merged = new Uint8Array(totalLength);
+  let offset = 0;
+
+  arrays.forEach((array) => {
+    merged.set(array, offset);
+    offset += array.length;
+  });
+
+  return merged;
+};
+
+const isCompleteWebP = (bytes) => {
+  if (bytes.length < 12) return false;
+
+  const header = String.fromCharCode(...bytes.slice(0, 4));
+  const format = String.fromCharCode(...bytes.slice(8, 12));
+  if (header !== 'RIFF' || format !== 'WEBP') return false;
+
+  const dataView = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const expectedLength = dataView.getUint32(4, true) + 8;
+  return bytes.length >= expectedLength;
+};
+
+const decodeTestamurChunks = (encodedChunks) => {
+  const cleanedChunks = encodedChunks.map(cleanBase64);
+  const attempts = [];
+
+  // The repository stores each binary segment as its own Base64 document.
+  // Decode each document first, then combine the resulting bytes.
+  try {
+    attempts.push(mergeByteArrays(cleanedChunks.map(decodeBase64)));
+  } catch (error) {
+    console.warn('Independent Base64 chunk decoding failed.', error);
+  }
+
+  // Retain support for assets that were split as one continuous Base64 string.
+  try {
+    attempts.push(decodeBase64(cleanedChunks.join('')));
+  } catch (error) {
+    console.warn('Continuous Base64 decoding failed.', error);
+  }
+
+  const completeImage = attempts.find(isCompleteWebP);
+  if (!completeImage) {
+    throw new Error('The reconstructed testamur is incomplete or is not a valid WebP image.');
+  }
+
+  const dataView = new DataView(
+    completeImage.buffer,
+    completeImage.byteOffset,
+    completeImage.byteLength,
+  );
+  const expectedLength = dataView.getUint32(4, true) + 8;
+
+  return completeImage.slice(0, expectedLength);
+};
+
 const loadTestamur = async (image, paths) => {
+  const loading = image.parentElement?.querySelector('.testamur-loading');
+
   try {
     const chunks = await Promise.all(paths.map(async (path) => {
-      const response = await fetch(`${path}?v=cqu-2025-1`);
+      const response = await fetch(`${path}?v=cqu-2025-2`);
       if (!response.ok) throw new Error(`Unable to load ${path}`);
       return response.text();
     }));
 
-    const dataUrl = `data:image/webp;base64,${chunks.join('').replace(/\s/g, '')}`;
-    image.src = dataUrl;
-    image.hidden = false;
-    image.parentElement?.querySelector('.testamur-loading')?.remove();
+    const bytes = decodeTestamurChunks(chunks);
+    const objectUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/webp' }));
+    testamurObjectUrls.add(objectUrl);
 
     const link = document.querySelector(`[data-testamur-link="${image.dataset.testamur}"]`);
-    if (link) link.href = dataUrl;
+    if (link) link.href = objectUrl;
+
+    image.addEventListener('load', () => {
+      image.hidden = false;
+      loading?.remove();
+    }, { once: true });
+
+    image.addEventListener('error', () => {
+      image.hidden = true;
+      if (loading) loading.textContent = 'Testamur preview is temporarily unavailable.';
+      URL.revokeObjectURL(objectUrl);
+      testamurObjectUrls.delete(objectUrl);
+    }, { once: true });
+
+    image.src = objectUrl;
   } catch (error) {
-    const loading = image.parentElement?.querySelector('.testamur-loading');
+    image.hidden = true;
     if (loading) loading.textContent = 'Testamur preview is temporarily unavailable.';
     console.error(error);
   }
@@ -138,6 +229,11 @@ const loadTestamur = async (image, paths) => {
 
 document.querySelectorAll('[data-testamur]').forEach((image) => {
   loadTestamur(image, imageSources[image.dataset.testamur]);
+});
+
+window.addEventListener('pagehide', () => {
+  testamurObjectUrls.forEach((url) => URL.revokeObjectURL(url));
+  testamurObjectUrls.clear();
 });
 
 // Use the actual certificate images stored in the portfolio repository.
