@@ -1,19 +1,42 @@
 # Jerald Bucud — Software Developer Portfolio
 
-Personal portfolio website for **Jerald Christopher Bucud**, a Brisbane-based Master of Information Technology candidate focused on Java and Spring full-stack development, with supporting experience in enterprise Java and applied computer vision.
+Personal portfolio website for **Jerald Christopher Bucud**, a Brisbane-based Master of Information Technology candidate focused on Java and Spring full-stack development, with additional experience in enterprise Java and applied computer vision.
 
 ## Live website
 
 [https://jeraldbucud.com](https://jeraldbucud.com)
 
-The website is deployed through GitHub Pages from the `main` branch and uses the custom domain configured in `CNAME`.
+The website is configured for deployment through GitHub Pages from the `main` branch and uses the custom domain recorded in the `CNAME` file.
 
 ## Selected projects
 
-- **Godscent Drive POS** — private React, Spring Boot and PostgreSQL system covering point-of-sale, inventory and event operations. The public case study presents approved interface evidence and identifies browser-side offline storage and synchronisation as planned work.
-- **YOLOv11 Mango Detection** — public computer-vision project documenting two training configurations, validation-based model selection, held-out evaluation results and a reusable inference script.
-- **CrisisOps** — public JavaFX disaster-response application developed through individual and collaborative assessment stages, with a multi-threaded Java server, MySQL persistence and role-aware client workflows.
-- **SmartTech E-Business System** — public Jakarta EE application with Jakarta Faces interfaces, EJB services, Jakarta Persistence, authenticated sessions and stock-aware order processing.
+### Godscent Drive POS
+
+A private full-stack system built with React, Spring Boot and PostgreSQL for point-of-sale, inventory and event operations.
+
+The public case study presents approved interface evidence and clearly distinguishes implemented functionality from planned enhancements.
+
+[View the Godscent Drive POS case study](https://jeraldbucud.com/godscent-drive-pos-case-study.html)
+
+### YOLOv11 Mango Detection
+
+A public computer-vision project documenting two YOLOv11-n training configurations, validation-based model selection, held-out evaluation results and a configurable inference script.
+
+[View the case study](https://jeraldbucud.com/yolov11-mango-detection-case-study.html) · [View the repository](https://github.com/JeraldBucud/yolov11-mango-detection)
+
+### CrisisOps
+
+A JavaFX disaster-response application that evolved from an individual prototype into a collaborative client-server system.
+
+The project includes a multi-threaded Java server, socket communication, MySQL persistence, role-specific workflows and current JUnit test evidence.
+
+[View the case study](https://jeraldbucud.com/crisisops-case-study.html) · [View the repository](https://github.com/JeraldBucud/crisisops-disaster-response-system)
+
+### SmartTech E-Business System
+
+A collaborative Jakarta EE retail-operations application using Jakarta Faces, EJB services, Jakarta Persistence, authenticated sessions, MySQL and stock-aware order processing.
+
+[View the case study](https://jeraldbucud.com/smarttech-ebusiness-system-case-study.html) · [View the repository](https://github.com/JeraldBucud/smarttech-ebusiness-system)
 
 ## Primary full-stack direction
 
@@ -21,7 +44,7 @@ The website is deployed through GitHub Pages from the `main` branch and uses the
 
 ### Backend Development
 
-Java · Spring Boot · REST APIs · PostgreSQL · JUnit
+Java · Spring Boot · REST APIs · PostgreSQL · MySQL · JUnit
 
 ### Frontend Development
 
@@ -31,48 +54,111 @@ React · JavaScript · HTML · CSS
 
 Git · Maven · GitHub Actions · Testing
 
-Project-specific technologies such as JavaFX, Jakarta EE, MySQL, Python, YOLOv11 and OpenCV remain documented in the relevant project cards, case studies and source repositories.
+Project-specific technologies such as JavaFX, Jakarta EE, Python, YOLOv11 and OpenCV remain documented in the relevant project cards, case studies and source repositories.
 
 ## Website structure
 
 ```text
 JeraldBucud.github.io/
+├── .github/
+│   └── workflows/
+│       └── portfolio-quality.yml
+├── assets/
+│   ├── academic/
+│   ├── branding/
+│   ├── certificates/
+│   └── projects/
+├── docs/
+│   └── github-profile/
+├── scripts/
+│   └── check_site.py
 ├── index.html
 ├── credentials.html
 ├── godscent-drive-pos-case-study.html
 ├── yolov11-mango-detection-case-study.html
 ├── crisisops-case-study.html
 ├── smarttech-ebusiness-system-case-study.html
+├── 404.html
 ├── styles.css
 ├── development-core.css
 ├── phase-one.css
 ├── selected-work.css
 ├── selected-work-responsive.css
+├── responsive-browser-qa.css
+├── accessibility.css
 ├── credentials-v2.css
 ├── academic-credentials.css
 ├── formal-education-hierarchy.css
 ├── godscent-drive-pos-case-study.css
+├── godscent-drive-pos-case-study-fixes.css
 ├── yolov11-mango-detection-case-study.css
+├── yolov11-mango-detection-case-study-fixes.css
 ├── crisisops-case-study.css
 ├── smarttech-ebusiness-system-case-study.css
 ├── script-core.js
+├── robots.txt
+├── sitemap.xml
 ├── CNAME
-└── assets/
-    ├── academic/
-    ├── branding/
-    ├── certificates/
-    └── projects/
+├── .nojekyll
+├── LICENSE
+└── README.md
 ```
 
-The homepage, Credentials page and project case studies store their visible copy directly in HTML. `script-core.js` handles shared navigation, reveal animations and interactive behaviour.
+The homepage, Credentials page and project case studies store their visible content directly in HTML.
+
+Shared navigation, mobile behaviour, accessibility support, reveal animations and interactive elements are handled through `script-core.js` and the shared stylesheets.
+
+## Automated quality checks
+
+The repository includes a GitHub Actions workflow that runs the portfolio validation script on pull requests and updates to `main`.
+
+The automated checks cover:
+
+- page titles and metadata;
+- canonical URLs;
+- heading and landmark structure;
+- duplicate element IDs;
+- image alternative text;
+- internal links and page fragments;
+- local scripts, stylesheets and assets;
+- CSS asset references;
+- sitemap coverage;
+- JavaScript syntax.
+
+The validation script is located at:
+
+```text
+scripts/check_site.py
+```
+
+The workflow configuration is located at:
+
+```text
+.github/workflows/portfolio-quality.yml
+```
 
 ## Content boundaries
 
-- Godscent Drive POS is a private client repository. Only approved case-study material is published here.
-- Academic and collaborative projects identify individual contributions without claiming sole authorship of team work.
-- Historical test results are labelled separately from current automated verification.
-- Planned functionality is distinguished from implemented functionality.
+Godscent Drive POS is maintained in a private client repository. Only approved screenshots, technical descriptions and portfolio-ready evidence are included in the public case study.
 
-## Privacy
+Academic and collaborative projects identify Jerald’s individual contributions without presenting team work as solely authored.
 
-Do not publish private credentials, API keys, customer records, complete residential addresses, identity documents, student identifiers or original high-resolution academic documents in this repository.
+Historical assessment evidence is labelled separately from current repository testing.
+
+Planned functionality is distinguished from implemented functionality throughout the case studies.
+
+## Public repository scope
+
+This repository contains only material prepared for public portfolio use.
+
+Private project source code, customer data, authentication credentials, API keys, residential information, student identifiers and unredacted academic documents are not included.
+
+## Author
+
+**Jerald Christopher Bucud**
+
+Master of Information Technology Candidate  
+Java and Spring Full-stack Development  
+Brisbane, Queensland, Australia
+
+[Portfolio](https://jeraldbucud.com) · [GitHub](https://github.com/JeraldBucud) · [LinkedIn](https://www.linkedin.com/in/jeraldbucud/) · [Email](mailto:jerald@jeraldbucud.com)
