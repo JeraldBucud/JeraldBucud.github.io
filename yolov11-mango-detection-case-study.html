@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical case study for Jerald Christopher Bucud's YOLOv11-n mango detection project, covering dataset preparation, experiment design, model selection, held-out testing and limitations.">
+  <meta name="theme-color" content="#070907">
+  <link rel="canonical" href="https://jeraldbucud.com/yolov11-mango-detection-case-study.html">
+
+  <meta property="og:title" content="YOLOv11 Mango Detection Case Study | Jerald Christopher Bucud">
+  <meta property="og:description" content="An applied computer-vision project that fine-tunes YOLOv11-n for mango detection and evaluates the selected model on a held-out test set.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jeraldbucud.com/yolov11-mango-detection-case-study.html">
+  <meta property="og:site_name" content="Jerald Christopher Bucud">
+  <meta property="og:image" content="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_01.jpg">
+  <meta property="og:image:alt" content="Mangoes detected in an orchard image using a fine-tuned YOLOv11-n model.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YOLOv11 Mango Detection Case Study | Jerald Christopher Bucud">
+  <meta name="twitter:description" content="Dataset preparation, controlled experiments, validation-based model selection and held-out test evaluation.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_01.jpg">
+  <meta name="twitter:image:alt" content="Mangoes detected in an orchard image using a fine-tuned YOLOv11-n model.">
+
+  <title>YOLOv11 Mango Detection Case Study | Jerald Christopher Bucud</title>
+  <link rel="icon" href="assets/branding/jaycee-bucud-black.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="yolov11-mango-detection-case-study.css?v=mango-case-study-v1">
+  <link rel="stylesheet" href="yolov11-mango-detection-case-study-fixes.css?v=mango-case-study-v1">
+  <script defer src="script-core.js?v=sprint-1"></script>
+</head>
+<body class="mango-case-study-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#home" aria-label="Jerald Christopher Bucud home">
+        <span class="brand-symbol"><img class="personal-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt=""></span>
+        <span class="brand-role">Jerald Christopher Bucud</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open navigation menu"><span></span><span></span></button>
+      <div class="nav-links" id="site-links">
+        <a class="active" href="index.html#work">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#journey">Experience</a>
+        <a href="index.html#stack">Skills</a>
+        <a href="credentials.html">Credentials</a>
+        <a class="nav-cta" href="index.html#contact">Let’s connect <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="mango-hero">
+      <div class="mango-grid-bg" aria-hidden="true"></div>
+      <div class="mango-orb mango-orb-one" aria-hidden="true"></div>
+      <div class="mango-orb mango-orb-two" aria-hidden="true"></div>
+      <div class="shell mango-hero-inner">
+        <div class="mango-breadcrumb reveal">
+          <a href="index.html#work">← Back to selected projects</a>
+          <span>Applied AI case study / 02</span>
+        </div>
+
+        <div class="mango-hero-layout">
+          <div class="mango-hero-copy reveal">
+            <p class="section-code">COMPUTER VISION · OBJECT DETECTION</p>
+            <h1>YOLOv11 <span>Mango Detection</span></h1>
+            <p class="mango-hero-lead">A documented computer-vision workflow that fine-tunes YOLOv11-n to locate mangoes in orchard images.</p>
+            <p class="mango-hero-summary">I structured the dataset setup, defined two training configurations, compared their recorded validation results, selected the tuned checkpoint and reported its performance on a held-out test split.</p>
+            <div class="mango-hero-actions">
+              <a class="button button-solid" href="#results">Explore the results <span>↓</span></a>
+              <a class="button button-ghost" href="https://github.com/JeraldBucud/yolov11-mango-detection" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            </div>
+          </div>
+
+          <aside class="mango-project-brief reveal" aria-label="Project summary">
+            <div class="mango-brief-top"><span>Model summary</span><strong>YOLO11n</strong></div>
+            <dl>
+              <div><dt>Task</dt><dd>Single-class object detection</dd></div>
+              <div><dt>Dataset</dt><dd>1,730 orchard images</dd></div>
+              <div><dt>Experiments</dt><dd>Baseline and tuned</dd></div>
+              <div><dt>Selection</dt><dd>Validation performance</dd></div>
+              <div><dt>Final test</dt><dd>86 images · 694 instances</dd></div>
+              <div><dt>Status</dt><dd>Applied AI prototype</dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="mango-metrics reveal" aria-label="Final held-out test metrics">
+          <article><span>Precision</span><strong>0.936</strong><small>Correctness of positive detections</small></article>
+          <article><span>Recall</span><strong>0.971</strong><small>Coverage of annotated mangoes</small></article>
+          <article><span>mAP@0.5</span><strong>0.989</strong><small>Detection performance at IoU 0.50</small></article>
+          <article><span>mAP@0.5:0.95</span><strong>0.704</strong><small>Performance across stricter IoU thresholds</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-showcase">
+      <div class="shell">
+        <figure class="vision-frame vision-frame-hero reveal">
+          <div class="vision-frame-bar"><span>Selected model / prediction example</span><span>Confidence threshold 0.25</span></div>
+          <img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_01.jpg" alt="Fine-tuned YOLOv11-n model detecting multiple mangoes in an orchard image" fetchpriority="high" decoding="async">
+          <figcaption>Bounding boxes show model detections on an orchard image. The public repository includes additional prediction examples and a configurable inference script.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="mango-section">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">01 / PROBLEM</p><h2>Detect fruit in <em>visually complex orchard scenes.</em></h2></div>
+          <p>Automated fruit detection can support later tasks such as counting, crop-load estimation and orchard monitoring. Before those applications are possible, the model must first localise fruit reliably despite leaves, branches, clustering, scale changes and uneven lighting.</p>
+        </div>
+
+        <div class="mango-problem-layout">
+          <article class="mango-story reveal">
+            <h3>The project question</h3>
+            <p>Can a lightweight YOLOv11-n detector be fine-tuned to identify mangoes in the recorded orchard dataset and maintain useful performance on a separate held-out test split?</p>
+            <p>The scope was deliberately limited to one class—<strong>mango</strong>. The project does not infer ripeness, quality, disease, variety or commercial yield.</p>
+          </article>
+
+          <div class="mango-challenge-grid">
+            <article class="mango-challenge-card reveal"><span>01</span><h3>Occlusion</h3><p>Leaves, branches and overlapping fruit can hide object boundaries and reduce localisation quality.</p></article>
+            <article class="mango-challenge-card reveal"><span>02</span><h3>Scale variation</h3><p>Mangoes appear at different sizes depending on their distance from the camera.</p></article>
+            <article class="mango-challenge-card reveal"><span>03</span><h3>Lighting</h3><p>Highlights, shadows and colour shifts can change the visual appearance of the same class.</p></article>
+            <article class="mango-challenge-card reveal"><span>04</span><h3>Clustering</h3><p>Closely grouped mangoes make it harder to separate individual detections accurately.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section mango-section-alt">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">02 / DATASET</p><h2>Public data, documented attribution and <em>separate evaluation splits.</em></h2></div>
+          <p>The project uses a publicly available YOLO-format dataset from Roboflow Universe under CC BY 4.0. The source and licence are documented in the repository.</p>
+        </div>
+
+        <div class="dataset-layout">
+          <div class="dataset-total reveal">
+            <span>Recorded dataset</span>
+            <strong>1,730</strong>
+            <p>annotated orchard images</p>
+          </div>
+          <div class="dataset-splits">
+            <article class="dataset-split reveal"><span>Training</span><strong>1,384</strong><small>80.0% of images</small></article>
+            <article class="dataset-split reveal"><span>Validation</span><strong>260</strong><small>15.0% of images</small></article>
+            <article class="dataset-split reveal"><span>Test</span><strong>86</strong><small>5.0% of images</small></article>
+          </div>
+        </div>
+
+        <div class="data-principles reveal">
+          <div><span>Validation</span><p>Used to compare experiments and choose the final model before viewing final test performance.</p></div>
+          <div><span>Held-out test</span><p>Used for the final reported metrics after model selection.</p></div>
+          <div><span>Repository scope</span><p>The complete dataset and trained checkpoint are excluded; attribution, setup and download instructions are provided instead.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">03 / PIPELINE</p><h2>A workflow designed for <em>repeatable experimentation.</em></h2></div>
+          <p>The cleaned notebook provides separate code sections for dataset validation, experiment configuration, validation comparison, final evaluation and inference.</p>
+        </div>
+
+        <div class="pipeline-panel reveal" aria-label="YOLOv11 mango detection workflow">
+          <div class="pipeline-node"><span>01</span><strong>Validate data</strong><small>Check image and label counts across train, validation and test folders.</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-node"><span>02</span><strong>Fine-tune</strong><small>Start from pretrained YOLOv11-n weights using controlled experiment settings.</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-node"><span>03</span><strong>Select</strong><small>Compare baseline and tuned checkpoints using recorded validation metrics.</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-node"><span>04</span><strong>Evaluate</strong><small>Evaluate the selected checkpoint on the held-out test split.</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-node"><span>05</span><strong>Infer</strong><small>Use the command-line script on an image, video, supported URL or directory.</small></div>
+        </div>
+
+        <ul class="mango-tech-list reveal" aria-label="Project environment and technologies">
+          <li>Python 3.12</li><li>YOLOv11-n</li><li>Ultralytics</li><li>PyTorch</li><li>CUDA</li><li>Google Colab</li><li>Pandas</li><li>OpenCV</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mango-section mango-section-alt">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">04 / EXPERIMENTS</p><h2>Model selection based on <em>validation evidence.</em></h2></div>
+          <p>Two experiments used the same YOLOv11-n architecture, image size, batch size, optimiser and random seed. The tuned configuration extended the training budget, reduced the initial learning rate and increased early-stopping patience.</p>
+        </div>
+
+        <div class="experiment-table-wrap reveal">
+          <table class="experiment-table">
+            <thead><tr><th>Experiment</th><th>Purpose</th><th>Epochs</th><th>Learning rate</th><th>Patience</th><th>Val mAP@0.5</th><th>Val mAP@0.5:0.95</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Baseline</strong></td><td>Reference run</td><td>50</td><td>0.0010</td><td>15</td><td>0.988831</td><td>0.701359</td></tr>
+              <tr class="selected-row"><td><strong>Tuned</strong><span class="selected-chip">Selected</span></td><td>Longer, lower-LR run</td><td>100 planned<br><small>stopped at 77</small></td><td>0.0008</td><td>20</td><td>0.990000</td><td>0.703000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="experiment-notes">
+          <article class="experiment-note reveal"><span>Best epoch</span><strong>57</strong><p>The selected run stopped at epoch 77 after no further improvement within the configured patience window.</p></article>
+          <article class="experiment-note reveal"><span>Controlled variables</span><strong>640 × 640 · batch 16</strong><p>Both configurations used pretrained YOLOv11-n weights, AdamW and a fixed random seed of 42.</p></article>
+          <article class="experiment-note reveal"><span>Selection rule</span><strong>Validation first</strong><p>The tuned model was selected using the recorded validation comparison before final test performance was reported.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section" id="results">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">05 / RESULTS</p><h2>Strong detection scores with <em>room for tighter localisation.</em></h2></div>
+          <p>The selected checkpoint was evaluated on 86 held-out images containing 694 annotated mango instances.</p>
+        </div>
+
+        <div class="result-summary-grid">
+          <article class="result-summary reveal"><span>Precision</span><strong>93.64%</strong><p>Most predicted mango boxes corresponded to annotated fruit.</p></article>
+          <article class="result-summary reveal"><span>Recall</span><strong>97.12%</strong><p>The model recovered a high proportion of annotated mango instances.</p></article>
+          <article class="result-summary reveal"><span>mAP@0.5</span><strong>98.94%</strong><p>Detection was very strong at the standard IoU 0.50 threshold.</p></article>
+          <article class="result-summary reveal"><span>mAP@0.5:0.95</span><strong>70.43%</strong><p>Performance decreased when localisation was judged across stricter IoU thresholds.</p></article>
+        </div>
+
+        <div class="analysis-callout reveal">
+          <span>Interpretation</span>
+          <p>The gap between mAP@0.5 and mAP@0.5:0.95 is consistent with the detector finding mangoes more reliably than it places consistently tight boxes around them. Recall was also higher than precision, indicating high coverage with some remaining false-positive risk.</p>
+        </div>
+
+        <div class="result-visual-grid">
+          <figure class="result-figure reveal">
+            <div class="result-figure-head"><span>Training history</span><a href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/results/graphs/results.png" target="_blank" rel="noopener noreferrer">Open full size ↗</a></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/graphs/results.png" alt="YOLOv11-n mango detector training and validation metric history" loading="lazy" decoding="async">
+            <figcaption>The recorded training curves provide supporting context for convergence and model behaviour.</figcaption>
+          </figure>
+          <figure class="result-figure reveal">
+            <div class="result-figure-head"><span>Precision–recall curve</span><a href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/results/graphs/precision_recall_curve.png" target="_blank" rel="noopener noreferrer">Open full size ↗</a></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/graphs/precision_recall_curve.png" alt="Precision-recall curve for the mango object-detection model" loading="lazy" decoding="async">
+            <figcaption>The curve shows the trade-off between finding more mangoes and limiting false detections.</figcaption>
+          </figure>
+          <figure class="result-figure result-figure-wide reveal">
+            <div class="result-figure-head"><span>Confusion matrix</span><a href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/results/graphs/confusion_matrix.png" target="_blank" rel="noopener noreferrer">Open full size ↗</a></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/graphs/confusion_matrix.png" alt="Confusion matrix for mango detections and background errors" loading="lazy" decoding="async">
+            <figcaption>The matrix provides additional evidence about background errors and missed detections.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section mango-section-alt">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">06 / PREDICTIONS</p><h2>Inspecting outputs beyond <em>aggregate metrics.</em></h2></div>
+          <p>Prediction examples provide a qualitative view of how the detector behaves in orchard scenes, including fruit at different scales and levels of occlusion.</p>
+        </div>
+
+        <div class="prediction-grid">
+          <figure class="prediction-card reveal"><img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_01.jpg" alt="First mango detection example with multiple bounding boxes" loading="lazy" decoding="async"><figcaption>Dense orchard scene</figcaption></figure>
+          <figure class="prediction-card reveal"><img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_02.jpg" alt="Second mango detection example showing fruit under varied lighting" loading="lazy" decoding="async"><figcaption>Lighting and scale variation</figcaption></figure>
+          <figure class="prediction-card reveal"><img src="https://raw.githubusercontent.com/JeraldBucud/yolov11-mango-detection/main/results/predictions/prediction_03.jpg" alt="Third mango detection example showing clustered fruit" loading="lazy" decoding="async"><figcaption>Clustered and partially occluded fruit</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section">
+      <div class="shell mango-two-column">
+        <div class="mango-sticky-copy reveal">
+          <p class="section-code">07 / MY CONTRIBUTION</p>
+          <h2>From experiment configuration to a <em>documented computer-vision workflow.</em></h2>
+          <p>I reorganised the academic work into a public repository with explicit dataset setup, training configurations, recorded metrics, evaluation code and inference tooling.</p>
+        </div>
+
+        <div class="contribution-list">
+          <article class="contribution-item reveal"><span>01</span><div><h3>Dataset workflow</h3><p>Configured the YOLO-format directory structure, added image-and-label count checks, generated a runtime dataset configuration and documented attribution.</p></div></article>
+          <article class="contribution-item reveal"><span>02</span><div><h3>Experiment configuration</h3><p>Defined baseline and tuned settings with shared image size, batch size, optimiser and seed, then varied the training budget, learning rate and patience.</p></div></article>
+          <article class="contribution-item reveal"><span>03</span><div><h3>Model selection and evaluation</h3><p>Documented the validation comparison, selected the tuned run and reported final performance on a separate held-out test split.</p></div></article>
+          <article class="contribution-item reveal"><span>04</span><div><h3>Reusable tooling and documentation</h3><p>Cleaned the notebook, created a configurable command-line inference script, added a model card and documented dataset and model licensing.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section mango-section-alt">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">08 / REPEATABLE WORKFLOW</p><h2>Code and documentation another developer can <em>inspect and run.</em></h2></div>
+          <p>The repository provides environment setup, dataset attribution, checkpoint-download instructions, experiment configurations, evaluation code and inference tooling. The external dataset and trained checkpoint must be obtained separately before dataset-dependent cells can run.</p>
+        </div>
+
+        <div class="repro-grid">
+          <a class="repro-card reveal" href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/notebooks/yolov11_mango_detection.ipynb" target="_blank" rel="noopener noreferrer"><span>Notebook</span><h3>Training and evaluation code</h3><p>Dataset checks, experiment configuration, recorded validation comparison, held-out evaluation and inference steps.</p><strong>View notebook ↗</strong></a>
+          <a class="repro-card reveal" href="https://colab.research.google.com/github/JeraldBucud/yolov11-mango-detection/blob/main/notebooks/yolov11_mango_detection.ipynb" target="_blank" rel="noopener noreferrer"><span>Google Colab</span><h3>Cloud notebook environment</h3><p>Open the cleaned notebook in Colab, then connect the separately downloaded dataset and checkpoint using the documented paths.</p><strong>Open in Colab ↗</strong></a>
+          <a class="repro-card reveal" href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/src/predict.py" target="_blank" rel="noopener noreferrer"><span>Inference</span><h3>Configurable command-line script</h3><p>Run detection against an image, video, supported URL or directory with configurable weights, confidence, IoU, image size and output path.</p><strong>View script ↗</strong></a>
+          <a class="repro-card reveal" href="https://github.com/JeraldBucud/yolov11-mango-detection/blob/main/models/MODEL_CARD.md" target="_blank" rel="noopener noreferrer"><span>Model card</span><h3>Checkpoint access and boundaries</h3><p>Download instructions, final metrics, intended uses, out-of-scope applications, limitations and licensing.</p><strong>View model card ↗</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section">
+      <div class="shell">
+        <div class="mango-section-heading reveal">
+          <div><p class="section-code">09 / LIMITATIONS</p><h2>What the results show—and <em>what still needs validation.</em></h2></div>
+          <p>The held-out split provides performance evidence for this dataset and recorded training run. External datasets and target-device benchmarks are still needed to measure behaviour across new orchards, seasons, cameras and deployment environments.</p>
+        </div>
+
+        <div class="limitation-grid">
+          <article class="limitation-card reveal"><span>Data coverage</span><h3>Limited orchard conditions</h3><p>The dataset represents a restricted range of locations, capture conditions and visual environments.</p></article>
+          <article class="limitation-card reveal"><span>External validity</span><h3>One held-out test split</h3><p>The model has not yet been validated against a separately collected external orchard dataset.</p></article>
+          <article class="limitation-card reveal"><span>Task boundary</span><h3>Detection only</h3><p>The model does not classify ripeness, variety, damage, disease or fruit quality.</p></article>
+          <article class="limitation-card reveal"><span>Deployment</span><h3>No device benchmark yet</h3><p>Latency, memory use and throughput still need testing on target local or edge hardware.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mango-section mango-section-alt">
+      <div class="shell mango-next-layout">
+        <div class="mango-next-copy reveal">
+          <p class="section-code">10 / NEXT STEPS</p>
+          <h2>Move from detection research toward <em>useful orchard tooling.</em></h2>
+          <p>The next stage should prioritise generalisation and measurable deployment behaviour before adding more product features.</p>
+        </div>
+        <ol class="mango-next-list">
+          <li class="reveal"><span>01</span><div><h3>External validation</h3><p>Test images from new orchards, seasons, cultivars, camera systems and lighting conditions.</p></div></li>
+          <li class="reveal"><span>02</span><div><h3>Model comparison</h3><p>Compare YOLOv11-n with larger variants and measure accuracy, memory and inference-speed trade-offs.</p></div></li>
+          <li class="reveal"><span>03</span><div><h3>Counting and load estimation</h3><p>Extend detections into image-level counting and evaluate counting error against annotated ground truth.</p></div></li>
+          <li class="reveal"><span>04</span><div><h3>Prototype deployment</h3><p>Build an image-upload demonstration and benchmark the selected model on realistic hardware.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mango-contact">
+      <div class="shell">
+        <div class="mango-contact-panel reveal">
+          <div><p class="section-code">CASE STUDY 02</p><h2>Review the implementation evidence.</h2></div>
+          <div class="mango-contact-actions">
+            <a class="button button-solid" href="https://github.com/JeraldBucud/yolov11-mango-detection" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            <a class="button button-ghost" href="index.html#work">All projects <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><strong>Jerald Christopher Bucud</strong><span>Master of IT Candidate · Full-stack Development and Applied AI</span></div>
+      <p>© <span id="current-year"></span> Applied AI case study.</p>
+      <a href="#main-content">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

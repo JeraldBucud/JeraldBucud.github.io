@@ -1,0 +1,136 @@
+/*
+  Sprint 6A responsive and browser safeguards.
+  These rules are loaded by script-core.js on every portfolio page so the
+  shared navigation and narrow-screen layouts behave consistently.
+*/
+
+@supports (min-height: 100svh) {
+  .hero {
+    min-height: 100svh;
+  }
+}
+
+.contact-link strong,
+.project-result strong,
+.qualification-action span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    height: calc(100vh - var(--header-height));
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @supports (height: 100dvh) {
+    .nav-links {
+      height: calc(100dvh - var(--header-height));
+      max-height: calc(100dvh - var(--header-height));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-link {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .crisisops-contact-actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .crisisops-contact-actions .button {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .crisisops-frame-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-block: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .support-status {
+    position: static;
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 14px;
+  }
+
+  .support-card h3,
+  .selected-projects-grid .support-card h3 {
+    margin-top: 34px;
+  }
+
+  .support-card {
+    padding: 22px;
+  }
+
+  .case-meta span,
+  .support-status,
+  .tech-pills li {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .system-map {
+    min-height: 470px;
+  }
+
+  .tech-node {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .tech-node img {
+    width: 19px;
+    height: 19px;
+  }
+
+  .orbit-track-outer .orbit-position {
+    transform: rotate(var(--node-angle)) translateX(min(32vw, 122px));
+  }
+
+  .orbit-track-middle .orbit-position,
+  .orbit-track-inner .orbit-position {
+    transform: rotate(var(--node-angle)) translateX(min(21vw, 80px));
+  }
+
+  .system-core {
+    width: 100px;
+    height: 100px;
+    padding: 6px 5px 8px;
+  }
+
+  .system-core strong {
+    font-size: 14px;
+  }
+
+  .core-brand-logo {
+    width: 17px;
+    height: 17px;
+    margin-bottom: 1px;
+  }
+
+  .core-eyebrow {
+    margin-bottom: 3px;
+    font-size: 5px;
+  }
+
+  .core-count {
+    margin-top: 2px;
+    font-size: 4px;
+    letter-spacing: .06em;
+  }
+}

@@ -1,0 +1,1034 @@
+:root {
+  --crisis-orange: #ff8a4c;
+  --crisis-orange-bright: #ffad7b;
+  --crisis-orange-soft: rgba(255, 138, 76, .1);
+  --crisis-orange-line: rgba(255, 138, 76, .34);
+  --crisis-blue: #6ae4da;
+  --crisis-red: #ff6b6b;
+}
+
+.personal-brand-logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.crisisops-case-study-page {
+  background:
+    radial-gradient(circle at 84% 5%, rgba(255, 138, 76, .09), transparent 30rem),
+    radial-gradient(circle at 8% 38%, rgba(106, 228, 218, .035), transparent 30rem),
+    var(--bg);
+}
+
+.crisisops-case-study-page .section-code,
+.crisisops-case-study-page .crisisops-breadcrumb span,
+.crisisops-case-study-page .crisisops-contribution-item > span {
+  color: var(--crisis-orange);
+}
+
+.crisisops-case-study-page .button-solid {
+  border-color: var(--crisis-orange);
+  background: var(--crisis-orange);
+  color: #100805;
+}
+
+.crisisops-case-study-page .button-solid:hover,
+.crisisops-case-study-page .button-solid:focus-visible {
+  border-color: var(--crisis-orange-bright);
+  background: var(--crisis-orange-bright);
+}
+
+.crisisops-hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 72px) 0 84px;
+  border-bottom: 1px solid var(--line);
+}
+
+.crisisops-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: .23;
+  background-image:
+    linear-gradient(rgba(237, 242, 233, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 242, 233, .05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, #000, transparent 90%);
+  pointer-events: none;
+}
+
+.crisisops-radar {
+  position: absolute;
+  top: 6%;
+  right: -13%;
+  width: 620px;
+  height: 620px;
+  border: 1px solid rgba(255, 138, 76, .2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.crisisops-radar::before,
+.crisisops-radar::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 138, 76, .15);
+}
+
+.crisisops-radar::before { inset: 18%; }
+.crisisops-radar::after { inset: 37%; }
+
+.crisisops-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.crisisops-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 62px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.crisisops-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.crisisops-breadcrumb a:hover,
+.crisisops-breadcrumb a:focus-visible {
+  color: var(--text);
+}
+
+.crisisops-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+  align-items: end;
+  gap: 86px;
+}
+
+.crisisops-hero-copy h1 {
+  max-width: 920px;
+  margin: 24px 0 26px;
+  font-family: var(--font-display);
+  font-size: clamp(70px, 11vw, 145px);
+  font-weight: 500;
+  letter-spacing: -.085em;
+  line-height: .82;
+}
+
+.crisisops-hero-copy h1 span {
+  display: block;
+  color: var(--crisis-orange);
+}
+
+.crisisops-hero-lead {
+  max-width: 830px;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(23px, 3vw, 39px);
+  letter-spacing: -.035em;
+  line-height: 1.25;
+}
+
+.crisisops-hero-summary {
+  max-width: 710px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.crisisops-hero-actions,
+.crisisops-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.crisisops-project-brief {
+  border: 1px solid var(--crisis-orange-line);
+  background: linear-gradient(145deg, rgba(255, 138, 76, .09), rgba(11, 14, 11, .94) 43%);
+}
+
+.crisisops-brief-top {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.crisisops-brief-top strong {
+  color: var(--crisis-orange);
+  font-size: 11px;
+}
+
+.crisisops-project-brief dl {
+  margin: 0;
+  padding: 8px 20px 20px;
+}
+
+.crisisops-project-brief dl div {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 18px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.crisisops-project-brief dl div:last-child { border-bottom: 0; }
+
+.crisisops-project-brief dt {
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.crisisops-project-brief dd {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 14px;
+  text-align: right;
+}
+
+.crisisops-attribution {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  margin-top: 68px;
+  padding: 23px 26px;
+  border: 1px solid var(--crisis-orange-line);
+  background: var(--crisis-orange-soft);
+}
+
+.crisisops-attribution span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.crisisops-attribution p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.crisisops-showcase {
+  padding: 72px 0 0;
+}
+
+.crisisops-frame {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line-strong);
+  background: #0b0e0b;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, .35);
+}
+
+.crisisops-frame-hero { border-color: var(--crisis-orange-line); }
+
+.crisisops-frame-bar {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 17px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-frame-bar span:last-child { color: var(--crisis-orange); }
+
+.crisisops-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #080a08;
+}
+
+.crisisops-frame figcaption {
+  padding: 15px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .055em;
+  line-height: 1.65;
+  text-transform: uppercase;
+}
+
+.crisisops-section {
+  padding: 124px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.crisisops-section-alt {
+  background: linear-gradient(180deg, rgba(255, 138, 76, .025), rgba(9, 12, 9, .74));
+}
+
+.crisisops-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+  align-items: end;
+  gap: 84px;
+  margin-bottom: 68px;
+}
+
+.crisisops-section-heading h2,
+.crisisops-contribution-copy h2,
+.crisisops-outcome-copy h2,
+.crisisops-contact-panel h2 {
+  margin: 22px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 500;
+  letter-spacing: -.065em;
+  line-height: 1;
+}
+
+.crisisops-section-heading h2 em,
+.crisisops-outcome-copy h2 em {
+  color: var(--crisis-orange);
+  font-style: normal;
+}
+
+.crisisops-section-heading > p,
+.crisisops-contribution-copy > p,
+.crisisops-outcome-copy > p {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.crisisops-context-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+  gap: 74px;
+}
+
+.crisisops-story {
+  padding-top: 26px;
+  border-top: 1px solid var(--crisis-orange-line);
+}
+
+.crisisops-story h3,
+.crisisops-stage-card h3,
+.crisisops-role-card h3,
+.crisisops-decision-card h3,
+.crisisops-reflection-card h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.crisisops-story p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.crisisops-problem-grid,
+.crisisops-stage-grid,
+.crisisops-role-grid,
+.crisisops-decision-grid,
+.crisisops-outcome-grid,
+.crisisops-reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.crisisops-problem-card,
+.crisisops-stage-card,
+.crisisops-role-card,
+.crisisops-decision-card,
+.crisisops-outcome-card,
+.crisisops-reflection-card {
+  border: 1px solid var(--line);
+  background: rgba(16, 20, 16, .74);
+}
+
+.crisisops-problem-card {
+  min-height: 245px;
+  padding: 24px;
+}
+
+.crisisops-problem-card > span,
+.crisisops-stage-number,
+.crisisops-role-number {
+  display: inline-grid;
+  min-width: 38px;
+  min-height: 30px;
+  place-items: center;
+  border: 1px solid var(--crisis-orange-line);
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.crisisops-problem-card h3 {
+  margin: 48px 0 12px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+
+.crisisops-problem-card p,
+.crisisops-stage-card p,
+.crisisops-role-card p,
+.crisisops-decision-card p,
+.crisisops-outcome-card p,
+.crisisops-reflection-card li {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.crisisops-stage-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.crisisops-stage-card {
+  display: flex;
+  min-height: 450px;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.crisisops-stage-card h3 { margin-top: 48px; }
+
+.crisisops-stage-card ul,
+.crisisops-role-card ul,
+.crisisops-reflection-card ul {
+  display: grid;
+  gap: 10px;
+  margin: auto 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.crisisops-stage-card li,
+.crisisops-role-card li {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .045em;
+}
+
+.crisisops-workflow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+.crisisops-workflow li {
+  min-height: 265px;
+  padding: 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.crisisops-workflow li:nth-child(3n) { border-right: 0; }
+
+.crisisops-workflow li > span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.crisisops-workflow h3 {
+  margin: 70px 0 12px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.crisisops-workflow p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.crisisops-role-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.crisisops-role-card {
+  display: flex;
+  min-height: 380px;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.crisisops-role-card h3 { margin-top: 48px; }
+
+.crisisops-architecture {
+  border: 1px solid var(--line-strong);
+  background: rgba(10, 13, 10, .9);
+}
+
+.crisisops-architecture-head {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-architecture-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr) 86px minmax(0, 1fr);
+  align-items: center;
+  padding: 58px;
+}
+
+.crisisops-architecture-node {
+  display: grid;
+  min-height: 210px;
+  align-content: center;
+  padding: 28px;
+  border: 1px solid var(--line-strong);
+  background: #0d110d;
+}
+
+.crisisops-architecture-node:first-child { border-color: var(--crisis-orange-line); }
+.crisisops-architecture-node:nth-child(3) { border-color: rgba(106, 228, 218, .34); }
+
+.crisisops-architecture-node span,
+.crisisops-architecture-secondary span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-architecture-node strong {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+
+.crisisops-architecture-node small {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.crisisops-architecture-link {
+  position: relative;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.crisisops-architecture-link::after {
+  content: '›';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  color: var(--crisis-orange);
+  font-size: 20px;
+  transform: translateY(-53%);
+}
+
+.crisisops-architecture-link span {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: .06em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.crisisops-architecture-secondary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.crisisops-architecture-secondary article {
+  display: grid;
+  min-height: 160px;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+}
+
+.crisisops-architecture-secondary article:last-child { border-right: 0; }
+
+.crisisops-architecture-secondary strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.crisisops-architecture-secondary small {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.crisisops-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crisisops-tech-list li {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .04em;
+}
+
+.crisisops-contribution-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+  gap: 82px;
+}
+
+.crisisops-contribution-copy p + p { margin-top: 20px; }
+
+.crisisops-contribution-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.crisisops-contribution-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 22px;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.crisisops-contribution-item > span {
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.crisisops-contribution-item h3 {
+  margin: 0 0 9px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+
+.crisisops-contribution-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.crisisops-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.crisisops-gallery .crisisops-frame:nth-child(3),
+.crisisops-gallery .crisisops-frame:nth-child(4) {
+  margin-top: 18px;
+}
+
+.crisisops-testing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.crisisops-test-summary {
+  padding: 30px;
+  border: 1px solid var(--crisis-orange-line);
+  background: var(--crisis-orange-soft);
+}
+
+.crisisops-test-summary strong {
+  display: block;
+  color: var(--crisis-orange);
+  font-family: var(--font-display);
+  font-size: clamp(72px, 9vw, 118px);
+  font-weight: 500;
+  letter-spacing: -.08em;
+  line-height: .85;
+}
+
+.crisisops-test-summary span {
+  display: block;
+  margin-top: 18px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.crisisops-test-summary p {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.crisisops-test-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.crisisops-test-card {
+  min-height: 190px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: rgba(16, 20, 16, .74);
+}
+
+.crisisops-test-card span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-test-card h3 {
+  margin: 40px 0 10px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+
+.crisisops-test-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.crisisops-decision-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.crisisops-decision-card {
+  min-height: 320px;
+  padding: 24px;
+}
+
+.crisisops-decision-card > span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-decision-card h3 {
+  margin-top: 54px;
+  font-size: 22px;
+}
+
+.crisisops-outcome-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  gap: 76px;
+  align-items: start;
+}
+
+.crisisops-outcome-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.crisisops-outcome-card {
+  min-height: 230px;
+  padding: 24px;
+}
+
+.crisisops-outcome-card strong {
+  color: var(--crisis-orange);
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+.crisisops-outcome-card span {
+  display: block;
+  margin: 42px 0 10px;
+  font-family: var(--font-display);
+  font-size: 21px;
+}
+
+.crisisops-reflection-card {
+  min-height: 390px;
+  padding: 28px;
+}
+
+.crisisops-reflection-card h3 { margin-bottom: 28px; }
+
+.crisisops-reflection-card ul {
+  margin-top: 0;
+  padding-top: 22px;
+}
+
+.crisisops-repository-note {
+  display: grid;
+  grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr);
+  gap: 46px;
+  margin-top: 16px;
+  padding: 30px;
+  border: 1px solid var(--crisis-orange-line);
+  background: var(--crisis-orange-soft);
+}
+
+.crisisops-repository-note span {
+  color: var(--crisis-orange);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.crisisops-repository-note h3 {
+  margin: 13px 0 0;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.crisisops-repository-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.crisisops-contact {
+  padding: 84px 0;
+}
+
+.crisisops-contact-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 42px;
+  border: 1px solid var(--crisis-orange-line);
+  background: linear-gradient(130deg, rgba(255, 138, 76, .1), rgba(10, 13, 10, .95) 55%);
+}
+
+.crisisops-contact-panel h2 {
+  max-width: 690px;
+  font-size: clamp(38px, 5vw, 64px);
+}
+
+@media (max-width: 1120px) {
+  .crisisops-hero-layout,
+  .crisisops-context-layout,
+  .crisisops-contribution-layout,
+  .crisisops-testing-layout,
+  .crisisops-outcome-layout {
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+
+  .crisisops-stage-grid,
+  .crisisops-role-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .crisisops-stage-card:last-child,
+  .crisisops-role-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .crisisops-architecture-flow {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 42px;
+  }
+
+  .crisisops-architecture-link {
+    width: 1px;
+    height: 36px;
+    margin: 0 auto;
+  }
+
+  .crisisops-architecture-link::after {
+    top: auto;
+    right: 50%;
+    bottom: -11px;
+    transform: translateX(50%) rotate(90deg);
+  }
+
+  .crisisops-architecture-link span {
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+
+  .crisisops-decision-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .crisisops-section-heading {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .crisisops-workflow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .crisisops-workflow li:nth-child(3n) { border-right: 1px solid var(--line); }
+  .crisisops-workflow li:nth-child(2n) { border-right: 0; }
+
+  .crisisops-gallery,
+  .crisisops-test-grid,
+  .crisisops-outcome-grid,
+  .crisisops-reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crisisops-gallery .crisisops-frame:nth-child(3),
+  .crisisops-gallery .crisisops-frame:nth-child(4) {
+    margin-top: 0;
+  }
+
+  .crisisops-architecture-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .crisisops-architecture-secondary article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .crisisops-architecture-secondary article:last-child { border-bottom: 0; }
+
+  .crisisops-attribution,
+  .crisisops-repository-note {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .crisisops-contact-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .crisisops-hero {
+    padding-top: calc(var(--header-height) + 48px);
+  }
+
+  .crisisops-breadcrumb {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 44px;
+  }
+
+  .crisisops-hero-copy h1 {
+    font-size: clamp(58px, 20vw, 88px);
+  }
+
+  .crisisops-project-brief dl div {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .crisisops-project-brief dd { text-align: left; }
+
+  .crisisops-section { padding: 92px 0; }
+
+  .crisisops-problem-grid,
+  .crisisops-stage-grid,
+  .crisisops-role-grid,
+  .crisisops-decision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crisisops-stage-card:last-child,
+  .crisisops-role-card:last-child {
+    grid-column: auto;
+  }
+
+  .crisisops-workflow {
+    grid-template-columns: 1fr;
+  }
+
+  .crisisops-workflow li,
+  .crisisops-workflow li:nth-child(2n),
+  .crisisops-workflow li:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .crisisops-architecture-flow { padding: 24px 18px; }
+  .crisisops-architecture-node { min-height: 180px; }
+  .crisisops-contact-panel { padding: 28px 22px; }
+}

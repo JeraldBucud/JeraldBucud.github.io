@@ -1,0 +1,120 @@
+/* Shared accessibility improvements for every portfolio page. */
+
+:root {
+  /* Raises small secondary text above the WCAG AA contrast threshold on dark panels. */
+  --dim: #788276;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+main [id] {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+body :is(a, button, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--bg) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px var(--acid) !important;
+}
+
+.skip-link:focus-visible {
+  outline-offset: 1px !important;
+}
+
+.ticker.has-motion-toggle {
+  position: relative;
+}
+
+.ticker.has-motion-toggle .ticker-track {
+  padding-right: 154px;
+}
+
+.motion-toggle {
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  z-index: 3;
+  display: inline-flex;
+  min-width: 126px;
+  min-height: 35px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid #080a07;
+  background: var(--acid);
+  color: #080a07;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.motion-toggle:hover {
+  background: #edf2e9;
+}
+
+.motion-toggle[aria-pressed="true"] {
+  background: #edf2e9;
+}
+
+body.motion-paused .ticker-track,
+body.motion-paused .orbit-track,
+body.motion-paused .tech-node-inner {
+  animation-play-state: paused !important;
+}
+
+body.motion-paused .hero-orbit {
+  transform: none !important;
+}
+
+body.motion-paused .cursor-glow {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .ticker.has-motion-toggle .ticker-track {
+    padding-right: 120px;
+  }
+
+  .motion-toggle {
+    right: 8px;
+    min-width: 104px;
+    padding-inline: 8px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .orbit-track,
+  .tech-node-inner,
+  .hero-orbit {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  body :is(a, button, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 3px !important;
+    box-shadow: none !important;
+  }
+
+  .motion-toggle {
+    border: 1px solid ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+}

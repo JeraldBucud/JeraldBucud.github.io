@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The requested page could not be found on Jerald Christopher Bucud's software developer portfolio.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#070907">
+  <title>Page Not Found | Jerald Christopher Bucud</title>
+
+  <link rel="icon" href="assets/branding/jaycee-bucud-black.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive-browser-qa.css?v=sprint-6a-1" data-responsive-browser-qa>
+  <link rel="stylesheet" href="accessibility.css?v=sprint-6b-1" data-accessibility>
+  <style>
+    .not-found-section {
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      align-items: center;
+      padding: calc(var(--header-height) + 70px) 0 90px;
+    }
+
+    .not-found-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr);
+      gap: clamp(42px, 8vw, 110px);
+      align-items: center;
+    }
+
+    .not-found-code {
+      margin: 0;
+      color: var(--acid);
+      font-family: var(--font-display);
+      font-size: clamp(110px, 22vw, 280px);
+      font-weight: 600;
+      letter-spacing: -.1em;
+      line-height: .75;
+    }
+
+    .not-found-copy h1 {
+      max-width: 760px;
+      margin: 18px 0 22px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .95;
+    }
+
+    .not-found-copy > p:not(.section-code) {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    @media (max-width: 760px) {
+      .not-found-layout { grid-template-columns: 1fr; }
+      .not-found-code { font-size: clamp(92px, 38vw, 180px); }
+      .not-found-actions .button { width: 100%; justify-content: space-between; }
+    }
+  </style>
+  <script defer src="script-core.js?v=sprint-6c-1"></script>
+</head>
+<body class="not-found-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#home" aria-label="Jerald Christopher Bucud home">
+        <span class="brand-symbol"><img class="personal-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt=""></span>
+        <span class="brand-role">Jerald Christopher Bucud</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open navigation menu"><span></span><span></span></button>
+      <div class="nav-links" id="site-links">
+        <a href="index.html#work">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#journey">Experience</a>
+        <a href="index.html#stack">Skills</a>
+        <a href="credentials.html">Credentials</a>
+        <a class="nav-cta" href="index.html#contact">Let’s connect <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="not-found-section">
+      <div class="shell not-found-layout">
+        <p class="not-found-code" aria-hidden="true">404</p>
+        <div class="not-found-copy">
+          <p class="section-code">PAGE NOT FOUND</p>
+          <h1>This page is no longer here.</h1>
+          <p>The address may be incorrect, or the page may have moved. Return to the portfolio or continue to the selected project case studies.</p>
+          <div class="not-found-actions">
+            <a class="button button-solid" href="index.html">Return to portfolio <span>↗</span></a>
+            <a class="button button-ghost" href="index.html#work">View selected projects <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div>
+        <strong>Jerald Christopher Bucud</strong>
+        <span>Master of IT Candidate · Java and Spring Full-stack Development</span>
+      </div>
+      <p>© <span id="current-year"></span> Portfolio website.</p>
+      <a href="index.html">Portfolio home ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

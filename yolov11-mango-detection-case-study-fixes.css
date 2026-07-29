@@ -1,0 +1,26 @@
+/* Layout safety overrides for the model pipeline. */
+.pipeline-panel {
+  grid-template-columns: repeat(4, minmax(0, 1fr) minmax(20px, 42px)) minmax(0, 1fr);
+}
+
+@media (max-width: 1180px) {
+  .pipeline-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-node,
+  .pipeline-node:nth-of-type(n),
+  .pipeline-panel .pipeline-arrow:nth-of-type(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .pipeline-arrow {
+    width: auto;
+    min-height: 42px;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transform: rotate(90deg);
+  }
+}

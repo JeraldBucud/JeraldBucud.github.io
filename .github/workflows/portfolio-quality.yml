@@ -1,0 +1,60 @@
+name: Portfolio quality checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  site-integrity:
+    name: Validate static site
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          show-progress: false
+          persist-credentials: false
+
+      - name: Validate metadata, internal links and local assets
+        id: validate-site
+        continue-on-error: true
+        shell: bash
+        run: python3 scripts/check_site.py > site-validation.log 2>&1
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-validation-report
+          path: site-validation.log
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Report validation result
+        if: always()
+        shell: bash
+        run: |
+          cat site-validation.log
+          if [[ "${{ steps.validate-site.outcome }}" != "success" ]]; then
+            exit 1
+          fi
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          while IFS= read -r -d '' file; do
+            echo "Checking ${file}"
+            node --check "${file}"
+          done < <(find . -maxdepth 1 -type f -name '*.js' -print0)

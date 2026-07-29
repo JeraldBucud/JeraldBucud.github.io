@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study for SmartTech, a collaborative Jakarta EE retail-operations application. Jerald Christopher Bucud contributed Jakarta Faces interfaces, backing beans, authenticated-page access, local email integration and interface improvements.">
+  <meta name="theme-color" content="#070907">
+  <link rel="canonical" href="https://jeraldbucud.com/smarttech-ebusiness-system-case-study.html">
+
+  <meta property="og:title" content="SmartTech E-Business System Case Study | Jerald Christopher Bucud">
+  <meta property="og:description" content="A collaborative Jakarta EE application connecting authenticated access, customer records, device inventory and stock-aware order processing through a three-tier architecture.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jeraldbucud.com/smarttech-ebusiness-system-case-study.html">
+  <meta property="og:site_name" content="Jerald Christopher Bucud">
+  <meta property="og:image" content="https://raw.githubusercontent.com/JeraldBucud/smarttech-ebusiness-system/main/docs/Images/screenshots/dashboard.webp">
+  <meta property="og:image:alt" content="SmartTech operations dashboard for inventory, customer and order management.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SmartTech E-Business System Case Study | Jerald Christopher Bucud">
+  <meta name="twitter:description" content="Jakarta Faces interfaces, EJB integration, authenticated-page access, MySQL persistence and stock-aware order processing.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/JeraldBucud/smarttech-ebusiness-system/main/docs/Images/screenshots/dashboard.webp">
+  <meta name="twitter:image:alt" content="SmartTech operations dashboard for inventory, customer and order management.">
+
+  <title>SmartTech E-Business System Case Study | Jerald Christopher Bucud</title>
+  <link rel="icon" href="assets/branding/jaycee-bucud-black.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="smarttech-ebusiness-system-case-study.css?v=smarttech-case-study-v1">
+  <script defer src="script-core.js?v=sprint-1"></script>
+</head>
+<body class="smarttech-case-study-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#home" aria-label="Jerald Christopher Bucud home">
+        <span class="brand-symbol"><img class="personal-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt=""></span>
+        <span class="brand-role">Jerald Christopher Bucud</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open navigation menu"><span></span><span></span></button>
+      <div class="nav-links" id="site-links">
+        <a class="active" href="index.html#work">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#journey">Experience</a>
+        <a href="index.html#stack">Skills</a>
+        <a href="credentials.html">Credentials</a>
+        <a class="nav-cta" href="index.html#contact">Let’s connect <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="smarttech-hero">
+      <div class="smarttech-grid-bg" aria-hidden="true"></div>
+      <div class="smarttech-orb smarttech-orb-one" aria-hidden="true"></div>
+      <div class="smarttech-orb smarttech-orb-two" aria-hidden="true"></div>
+      <div class="shell smarttech-hero-inner">
+        <div class="smarttech-breadcrumb reveal">
+          <a href="index.html#work">← Back to selected projects</a>
+          <span>Enterprise Java case study / 04</span>
+        </div>
+
+        <div class="smarttech-hero-layout">
+          <div class="smarttech-hero-copy reveal">
+            <p class="section-code">COLLABORATIVE JAKARTA EE PROJECT</p>
+            <h1>SmartTech <span>E-Business System</span></h1>
+            <p class="smarttech-hero-lead">A server-rendered Jakarta EE application for authenticated access, customer records, tablet and smartwatch inventory, and stock-aware order processing.</p>
+            <p class="smarttech-hero-summary">I implemented Jakarta Faces presentation components, backing beans, the authenticated-page filter and the local email service that connect user workflows to the team’s EJB and persistence layers. I also refined the interface and corrected customer-profile navigation.</p>
+            <div class="smarttech-hero-actions">
+              <a class="button button-solid" href="#contribution">View my contribution <span>↓</span></a>
+              <a class="button button-ghost" href="https://github.com/JeraldBucud/smarttech-ebusiness-system" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            </div>
+          </div>
+
+          <aside class="smarttech-project-brief reveal" aria-label="Project summary">
+            <div class="smarttech-brief-top"><span>Project brief</span><strong>JAKARTA EE</strong></div>
+            <dl>
+              <div><dt>Project type</dt><dd>Collaborative university project</dd></div>
+              <div><dt>My role</dt><dd>Jakarta Faces and integration</dd></div>
+              <div><dt>Architecture</dt><dd>Three-tier web application</dd></div>
+              <div><dt>Platform</dt><dd>Jakarta EE 10 · GlassFish 7</dd></div>
+              <div><dt>Persistence</dt><dd>JPA · EclipseLink · MySQL</dd></div>
+              <div><dt>Status</dt><dd>Completed academic application</dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="smarttech-attribution reveal">
+          <span>Project contribution</span>
+          <p>SmartTech was developed collaboratively for COIT20259 Applied Distributed Systems. My work focused on the presentation layer, authentication-related integration, local email delivery, customer navigation and interface consistency.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-showcase" id="interface">
+      <div class="shell">
+        <figure class="smarttech-frame smarttech-frame-hero reveal">
+          <div class="smarttech-frame-bar"><span>SmartTech operations dashboard</span><span>Authenticated workspace</span></div>
+          <img src="https://raw.githubusercontent.com/JeraldBucud/smarttech-ebusiness-system/main/docs/Images/screenshots/dashboard.webp" alt="SmartTech dashboard linking tablet inventory, smartwatch inventory, customer records and order processing" fetchpriority="high" decoding="async">
+          <figcaption>The dashboard provides entry points for inventory, customer and order-management workflows after authentication.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="smarttech-section">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">01 / CONTEXT</p><h2>Manage related retail records through <em>one authenticated application.</em></h2></div>
+          <p>SmartTech connects customer records, two product categories and customer orders while keeping presentation, business and persistence responsibilities in separate application tiers.</p>
+        </div>
+
+        <div class="smarttech-context-layout">
+          <article class="smarttech-story reveal">
+            <h3>The operational problem</h3>
+            <p>A technology retailer needs customer information, product stock and order activity to work together. An order should refer to an existing customer and product, and it should not be created when the recorded stock is insufficient.</p>
+            <p>The internal management pages also require an authenticated session instead of relying only on hidden navigation links.</p>
+          </article>
+
+          <div class="smarttech-problem-grid">
+            <article class="smarttech-problem-card reveal"><span>01</span><h3>Related records</h3><p>Customer, product and order data need to operate as connected workflows rather than isolated forms.</p></article>
+            <article class="smarttech-problem-card reveal"><span>02</span><h3>Stock-aware orders</h3><p>Order creation checks recorded availability and updates the selected product quantity.</p></article>
+            <article class="smarttech-problem-card reveal"><span>03</span><h3>Authenticated pages</h3><p>A servlet filter redirects unauthenticated requests away from internal management routes.</p></article>
+            <article class="smarttech-problem-card reveal"><span>04</span><h3>Layer integration</h3><p>Jakarta Faces pages, EJB services and JPA entities must exchange data across a collaborative codebase.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section smarttech-section-alt" id="solution">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">02 / SYSTEM SCOPE</p><h2>Four modules supporting a <em>connected operating cycle.</em></h2></div>
+          <p>The application is an internal retail-management workspace rather than a customer-facing online store.</p>
+        </div>
+
+        <div class="smarttech-module-grid">
+          <article class="smarttech-module-card reveal">
+            <span class="smarttech-module-number">01</span>
+            <h3>Tablet inventory</h3>
+            <p>Create, list and search tablet records while storing device specifications and stock quantities.</p>
+            <ul><li>Product specifications</li><li>Stock records</li><li>Keyword filtering</li></ul>
+          </article>
+          <article class="smarttech-module-card reveal">
+            <span class="smarttech-module-number">02</span>
+            <h3>Smartwatch inventory</h3>
+            <p>Create, list and search smartwatch records with wearable attributes and stock information.</p>
+            <ul><li>Wearable specifications</li><li>Stock records</li><li>Keyword filtering</li></ul>
+          </article>
+          <article class="smarttech-module-card reveal">
+            <span class="smarttech-module-number">03</span>
+            <h3>Customer records</h3>
+            <p>Create customer profiles, search contact information and open the selected customer by ID.</p>
+            <ul><li>Customer creation</li><li>Directory and search</li><li>Selected profile view</li></ul>
+          </article>
+          <article class="smarttech-module-card reveal">
+            <span class="smarttech-module-number">04</span>
+            <h3>Order processing</h3>
+            <p>Select a customer and product, create an order and update the recorded product quantity.</p>
+            <ul><li>Customer and product selection</li><li>Stock deduction and restoration</li><li>Order list, search and details</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">03 / ARCHITECTURE</p><h2>Presentation, business and persistence concerns in <em>three application tiers.</em></h2></div>
+          <p>Jakarta Faces handles server-rendered pages and form interaction. Presentation beans call stateless EJB services, while Jakarta Persistence connects those services to MySQL through a JTA data source.</p>
+        </div>
+
+        <div class="smarttech-architecture reveal" aria-label="SmartTech three-tier architecture">
+          <div class="smarttech-architecture-head"><span>Application structure</span><span>WAR deployment · GlassFish 7</span></div>
+          <div class="smarttech-architecture-flow">
+            <article class="smarttech-architecture-node">
+              <span>Presentation tier</span>
+              <strong>Jakarta Faces and backing beans</strong>
+              <small>Facelets pages · form state · feedback · navigation · session access</small>
+            </article>
+            <div class="smarttech-architecture-link" aria-hidden="true"><span>EJB injection</span></div>
+            <article class="smarttech-architecture-node">
+              <span>Business tier</span>
+              <strong>Stateless EJB services</strong>
+              <small>Accounts · customers · products · orders · local email delivery</small>
+            </article>
+            <div class="smarttech-architecture-link" aria-hidden="true"><span>JPA / JTA</span></div>
+            <article class="smarttech-architecture-node">
+              <span>Persistence tier</span>
+              <strong>EclipseLink and MySQL</strong>
+              <small>User accounts · customers · tablets · smartwatches · orders</small>
+            </article>
+          </div>
+          <div class="smarttech-architecture-secondary">
+            <article><span>Application server</span><strong>GlassFish 7</strong><small>Hosts the Jakarta EE WAR and the configured JDBC resource.</small></article>
+            <article><span>Development email</span><strong>Jakarta Mail + FakeSMTP</strong><small>Sends verification and recovery codes through a local SMTP server.</small></article>
+            <article><span>Build workflow</span><strong>Maven + GitHub Actions</strong><small>Runs <code>mvn clean verify</code> with Java 11 on pushes and pull requests to main.</small></article>
+          </div>
+        </div>
+
+        <ul class="smarttech-tech-list reveal" aria-label="SmartTech technologies">
+          <li>Java 11</li><li>Jakarta EE 10</li><li>Jakarta Faces</li><li>EJB</li><li>Jakarta Persistence</li><li>EclipseLink</li><li>MySQL 8</li><li>GlassFish 7</li><li>Jakarta Mail</li><li>Maven</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="smarttech-section smarttech-section-alt" id="contribution">
+      <div class="shell smarttech-contribution-layout">
+        <div class="smarttech-contribution-copy reveal">
+          <p class="section-code">04 / MY CONTRIBUTION</p>
+          <h2>Jakarta Faces implementation and application integration.</h2>
+          <p>My work covered the application screens and the Java classes that prepare data for those screens, handle authentication-related navigation and connect user actions to the business tier.</p>
+          <p>I also implemented local email delivery for verification and recovery codes, corrected customer-profile routing and applied consistent responsive styling across the application.</p>
+        </div>
+
+        <div class="smarttech-contribution-list">
+          <article class="smarttech-contribution-item reveal"><span>01</span><div><h3>Authentication interfaces</h3><p>Implemented the Jakarta Faces backing bean and pages for registration, verification, login, account recovery, password reset and logout.</p></div></article>
+          <article class="smarttech-contribution-item reveal"><span>02</span><div><h3>Authenticated-page filter</h3><p>Added a servlet filter that allows public pages and static resources while redirecting unauthenticated management requests to the login page.</p></div></article>
+          <article class="smarttech-contribution-item reveal"><span>03</span><div><h3>Management backing beans</h3><p>Connected customer, tablet, smartwatch and order forms, tables and search views to the team’s business services.</p></div></article>
+          <article class="smarttech-contribution-item reveal"><span>04</span><div><h3>Local email service</h3><p>Implemented Jakarta Mail delivery for account-verification and recovery codes through a local FakeSMTP server.</p></div></article>
+          <article class="smarttech-contribution-item reveal"><span>05</span><div><h3>Customer profile routing</h3><p>Updated list and search links to pass the selected customer ID and load the matching profile record.</p></div></article>
+          <article class="smarttech-contribution-item reveal"><span>06</span><div><h3>Interface consistency</h3><p>Applied shared SmartTech branding, responsive layouts, navigation and feedback patterns across authentication and management pages.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">05 / IMPLEMENTATION EVIDENCE</p><h2>Requests crossing the <em>presentation, business and persistence layers.</em></h2></div>
+          <p>The following workflows show where the interface connects to application services and stored data.</p>
+        </div>
+
+        <div class="smarttech-evidence-grid">
+          <article class="smarttech-evidence-card reveal">
+            <span>Authenticated access</span>
+            <h3>Check the session at the request boundary</h3>
+            <p>The login filter distinguishes public pages and static resources from internal routes. Requests without an authenticated session are redirected to the login page.</p>
+          </article>
+          <article class="smarttech-evidence-card reveal">
+            <span>Account lifecycle</span>
+            <h3>Coordinate pages, EJB logic and local email</h3>
+            <p>Registration, verification, login, recovery and password reset move through the authentication bean, account service, persisted account state and Jakarta Mail service.</p>
+          </article>
+          <article class="smarttech-evidence-card reveal">
+            <span>Order and stock</span>
+            <h3>Update inventory through the business tier</h3>
+            <p>The order service calls the product service to deduct stock before persisting an order. Deleting the order restores the recorded quantity before the order is removed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section smarttech-section-alt">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">06 / ORDER WORKFLOW</p><h2>Order creation produces a <em>recorded inventory change.</em></h2></div>
+          <p>The sequence connects a Jakarta Faces form to customer, product and order services.</p>
+        </div>
+
+        <ol class="smarttech-workflow reveal" aria-label="SmartTech order and stock workflow">
+          <li><span>01</span><div><h3>Select customer</h3><p>The form loads options from persisted customer records.</p></div></li>
+          <li><span>02</span><div><h3>Choose product type</h3><p>An AJAX update refreshes the product options for tablets or smartwatches.</p></div></li>
+          <li><span>03</span><div><h3>Submit quantity</h3><p>The backing bean parses the selected IDs and quantity, then creates an order object.</p></div></li>
+          <li><span>04</span><div><h3>Check available stock</h3><p>The product service confirms that the current stock is at least the requested quantity.</p></div></li>
+          <li><span>05</span><div><h3>Deduct and persist</h3><p>The stock value is changed before the order is persisted by the business service.</p></div></li>
+          <li><span>06</span><div><h3>Restore on deletion</h3><p>Deleting an order returns its quantity to the referenced product before removing the order record.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="smarttech-section">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">07 / INTERFACE AND DATA</p><h2>Screens and data structures from the <em>running application.</em></h2></div>
+          <p>The public repository includes application screenshots and the local MySQL schema used by the academic build.</p>
+        </div>
+
+        <div class="smarttech-gallery">
+          <figure class="smarttech-frame reveal">
+            <div class="smarttech-frame-bar"><span>Authenticated account access</span><span>Jakarta Faces</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/smarttech-ebusiness-system/main/docs/Images/screenshots/login.webp" alt="SmartTech sign-in screen with verified-email and password fields" loading="lazy" decoding="async">
+            <figcaption>The sign-in page submits credentials through the session-scoped authentication bean and account EJB.</figcaption>
+          </figure>
+
+          <figure class="smarttech-frame reveal">
+            <div class="smarttech-frame-bar"><span>Relational data model</span><span>MySQL</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/smarttech-ebusiness-system/main/docs/Images/screenshots/database-schema.webp" alt="MySQL schema for SmartTech user accounts, customers, products and orders" loading="lazy" decoding="async">
+            <figcaption>The application persists accounts, customers, tablets, smartwatches and orders. The order entity stores customer and product IDs rather than mapped JPA relationships.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section smarttech-section-alt">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">08 / APPLICATION IMPROVEMENTS</p><h2>Usability and maintenance work completed <em>after the assessment.</em></h2></div>
+          <p>The original application functions were retained while the interface, navigation and public setup information were improved.</p>
+        </div>
+
+        <div class="smarttech-transformation-grid">
+          <article class="smarttech-transformation-card reveal"><span>Interface and navigation</span><h3>Consistent application experience</h3><ul><li>Shared SmartTech branding across Facelets pages</li><li>Responsive authentication and management layouts</li><li>Correct customer-profile routing by customer ID</li><li>Session-invalidating sign-out behaviour</li></ul></article>
+          <article class="smarttech-transformation-card reveal"><span>Repository and build</span><h3>Repeatable local setup</h3><ul><li>Documented GlassFish, MySQL and FakeSMTP requirements</li><li>Removed assessment-specific public setup details</li><li>Added application and schema screenshots</li><li>Configured Maven build checks through GitHub Actions</li></ul></article>
+        </div>
+
+        <div class="smarttech-delivery-strip reveal">
+          <div><span>01</span><strong>Authenticate</strong><small>Registration, verification, login, recovery and logout flows.</small></div>
+          <div><span>02</span><strong>Manage</strong><small>Customer, tablet, smartwatch and order interfaces.</small></div>
+          <div><span>03</span><strong>Integrate</strong><small>Backing beans connected to EJB services and persisted data.</small></div>
+          <div><span>04</span><strong>Refine</strong><small>Responsive styling, navigation and customer-detail routing.</small></div>
+          <div><span>05</span><strong>Build</strong><small>Maven packaging checks configured in GitHub Actions.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section">
+      <div class="shell">
+        <div class="smarttech-outcome-layout">
+          <div class="smarttech-outcome-copy reveal">
+            <p class="section-code">09 / OUTCOME</p>
+            <h2>Experience across Jakarta Faces, EJB integration and <em>relational workflows.</em></h2>
+            <p>SmartTech demonstrates work in a layered Java web application: implementing server-rendered interfaces, connecting them to business services, managing authenticated sessions and coordinating customer, product and order data.</p>
+          </div>
+          <div class="smarttech-outcome-grid">
+            <article class="smarttech-outcome-card reveal"><strong>01</strong><span>Layered application</span><p>Presentation, business and persistence responsibilities are separated in the codebase.</p></article>
+            <article class="smarttech-outcome-card reveal"><strong>02</strong><span>Connected operations</span><p>Customers, products, orders and stock changes operate through the same application.</p></article>
+            <article class="smarttech-outcome-card reveal"><strong>03</strong><span>Authenticated sessions</span><p>Public account pages and session-protected management routes form one account flow.</p></article>
+            <article class="smarttech-outcome-card reveal"><strong>04</strong><span>Collaborative delivery</span><p>The repository preserves the team history while documenting my implementation areas.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-section smarttech-section-alt">
+      <div class="shell">
+        <div class="smarttech-section-heading reveal">
+          <div><p class="section-code">10 / CURRENT SCOPE</p><h2>Specific constraints and <em>next engineering priorities.</em></h2></div>
+          <p>The application is complete for its academic scope. The following items would need attention before broader deployment.</p>
+        </div>
+
+        <div class="smarttech-reflection-grid">
+          <article class="smarttech-reflection-card reveal">
+            <h3>Current constraints</h3>
+            <ul>
+              <li>Passwords are stored as unsalted SHA-512 digests rather than a password-hashing function with a work factor.</li>
+              <li>Verification and recovery codes use <code>java.util.Random</code> and the account model has no expiry or attempt-limit fields.</li>
+              <li>The login filter checks whether a session is authenticated; the stored group name is not used for role-based permissions.</li>
+              <li>Search functions load full record lists and filter them in presentation backing beans.</li>
+              <li>Order quantity is parsed from text, and the business layer does not explicitly reject zero or negative values.</li>
+              <li>Orders store customer and product IDs only and do not persist status, notes or timestamps.</li>
+              <li>The GitHub workflow runs Maven verification, but automated unit, integration and browser tests are not included.</li>
+              <li>Local execution requires GlassFish, MySQL and FakeSMTP; SMTP host and port values are fixed in the email service.</li>
+            </ul>
+          </article>
+          <article class="smarttech-reflection-card reveal">
+            <h3>Next engineering steps</h3>
+            <ul>
+              <li>Adopt a salted password-hashing function with a configurable work factor.</li>
+              <li>Generate cryptographically secure, expiring verification and recovery codes with attempt limits.</li>
+              <li>Add role-based permissions for administrative and operational actions.</li>
+              <li>Validate positive order quantities and add integration tests for stock deduction, failure and restoration.</li>
+              <li>Move search criteria into database queries and add pagination for larger record sets.</li>
+              <li>Model customer and product relationships and persist a fuller order lifecycle.</li>
+              <li>Externalise SMTP settings and add automated unit, integration and browser-level tests.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="smarttech-repository-note reveal">
+          <div><span>Public repository</span><h3>Source code, setup instructions and contribution history are available.</h3></div>
+          <p>The repository contains the collaborative application, screenshots, local environment guide and Maven workflow. Commit history remains available for reviewing team contributions.</p>
+          <a href="https://github.com/JeraldBucud/smarttech-ebusiness-system" target="_blank" rel="noopener noreferrer">Explore the repository ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="smarttech-contact">
+      <div class="shell">
+        <div class="smarttech-contact-panel reveal">
+          <div><p class="section-code">CASE STUDY 04</p><h2>Review the source and local setup.</h2></div>
+          <div class="smarttech-contact-actions">
+            <a class="button button-solid" href="https://github.com/JeraldBucud/smarttech-ebusiness-system" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            <a class="button button-ghost" href="index.html#work">View all projects <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><strong>Jerald Christopher Bucud</strong><span>Master of IT Candidate · Full-stack Development and Applied AI</span></div>
+      <p>© <span id="current-year"></span> Collaborative enterprise Java case study.</p>
+      <a href="#main-content">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

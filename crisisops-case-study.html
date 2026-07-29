@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Software engineering case study for CrisisOps, a JavaFX disaster-response application developed by Jerald Christopher Bucud and later expanded collaboratively into a MySQL-backed client-server system.">
+  <meta name="theme-color" content="#070907">
+  <link rel="canonical" href="https://jeraldbucud.com/crisisops-case-study.html">
+
+  <meta property="og:title" content="CrisisOps Software Engineering Case Study | Jerald Christopher Bucud">
+  <meta property="og:description" content="An individual JavaFX disaster-response project expanded collaboratively into a multi-threaded client-server application with MySQL persistence.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jeraldbucud.com/crisisops-case-study.html">
+  <meta property="og:site_name" content="Jerald Christopher Bucud">
+  <meta property="og:image" content="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/ECC/Crisis%20Ops%20ECC%20Dashboard.png">
+  <meta property="og:image:alt" content="CrisisOps Emergency Control Centre dashboard for incident and disaster-response operations.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CrisisOps Software Engineering Case Study | Jerald Christopher Bucud">
+  <meta name="twitter:description" content="JavaFX workflows, socket communication, MySQL persistence, current testing evidence and documented project contributions.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/ECC/Crisis%20Ops%20ECC%20Dashboard.png">
+  <meta name="twitter:image:alt" content="CrisisOps Emergency Control Centre dashboard for incident and disaster-response operations.">
+
+  <title>CrisisOps Software Engineering Case Study | Jerald Christopher Bucud</title>
+  <link rel="icon" href="assets/branding/jaycee-bucud-black.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="crisisops-case-study.css?v=crisisops-case-study-v1">
+  <script defer src="script-core.js?v=sprint-1"></script>
+</head>
+<body class="crisisops-case-study-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#home" aria-label="Jerald Christopher Bucud home">
+        <span class="brand-symbol"><img class="personal-brand-logo" src="assets/branding/jaycee-bucud-white.svg" alt=""></span>
+        <span class="brand-role">Jerald Christopher Bucud</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open navigation menu"><span></span><span></span></button>
+      <div class="nav-links" id="site-links">
+        <a class="active" href="index.html#work">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#journey">Experience</a>
+        <a href="index.html#stack">Skills</a>
+        <a href="credentials.html">Credentials</a>
+        <a class="nav-cta" href="index.html#contact">Let’s connect <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="crisisops-hero">
+      <div class="crisisops-grid-bg" aria-hidden="true"></div>
+      <div class="crisisops-radar" aria-hidden="true"></div>
+      <div class="shell crisisops-hero-inner">
+        <div class="crisisops-breadcrumb reveal">
+          <a href="index.html#work">← Back to selected projects</a>
+          <span>Software engineering case study / 03</span>
+        </div>
+
+        <div class="crisisops-hero-layout">
+          <div class="crisisops-hero-copy reveal">
+            <p class="section-code">ACADEMIC SOFTWARE ENGINEERING PROJECT</p>
+            <h1>Crisis<span>Ops</span></h1>
+            <p class="crisisops-hero-lead">A JavaFX disaster-response application developed through two individual assessment stages and expanded collaboratively into a MySQL-backed client-server system.</p>
+            <p class="crisisops-hero-summary">I completed the original requirements, system design and working JavaFX prototype. During the final group stage, I contributed JavaFX screens, role-aware navigation, client request integration, public alerts, shelters and administrator interfaces.</p>
+            <div class="crisisops-hero-actions">
+              <a class="button button-solid" href="#contribution">View my contribution <span>↓</span></a>
+              <a class="button button-ghost" href="https://github.com/JeraldBucud/crisisops-disaster-response-system" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            </div>
+          </div>
+
+          <aside class="crisisops-project-brief reveal" aria-label="CrisisOps project summary">
+            <div class="crisisops-brief-top"><span>Project brief</span><strong>JAVA SE</strong></div>
+            <dl>
+              <div><dt>Project type</dt><dd>Academic software engineering</dd></div>
+              <div><dt>Individual role</dt><dd>Original system developer</dd></div>
+              <div><dt>Group-stage role</dt><dd>JavaFX integration contributor</dd></div>
+              <div><dt>Architecture</dt><dd>Desktop client-server system</dd></div>
+              <div><dt>Status</dt><dd>Completed academic version</dd></div>
+              <div><dt>Repository</dt><dd>Public</dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="crisisops-attribution reveal">
+          <span>Project history and contribution</span>
+          <p>The original analysis, design and JavaFX prototype were completed individually. The final client-server application includes collaborative server, database, integration, testing and documentation work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-showcase" id="interface">
+      <div class="shell">
+        <figure class="crisisops-frame crisisops-frame-hero reveal">
+          <div class="crisisops-frame-bar"><span>Completed academic application / Emergency Control Centre</span><span>Operational dashboard</span></div>
+          <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/ECC/Crisis%20Ops%20ECC%20Dashboard.png" alt="CrisisOps Emergency Control Centre dashboard showing disaster-response management modules" fetchpriority="high" decoding="async">
+          <figcaption>The Emergency Control Centre workspace combines incident registration, severity and priority assessment, resource coordination, shelters and public alerts.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="crisisops-section">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">01 / CONTEXT</p><h2>Coordinate information across a <em>disaster-response workflow.</em></h2></div>
+          <p>CrisisOps models the movement from a public disaster report to incident assessment, resource dispatch, status updates and community information.</p>
+        </div>
+
+        <div class="crisisops-context-layout">
+          <article class="crisisops-story reveal">
+            <h3>The system problem</h3>
+            <p>Reports must be reviewed before they become structured incidents. Staff then need consistent severity and priority information, visibility of available resources and a record of response activity.</p>
+            <p>The application also separates community-facing functions from Emergency Control Centre and administrator work through role-aware JavaFX navigation.</p>
+          </article>
+
+          <div class="crisisops-problem-grid">
+            <article class="crisisops-problem-card reveal"><span>01</span><h3>Report validation</h3><p>Public submissions need review before staff register an operational incident.</p></article>
+            <article class="crisisops-problem-card reveal"><span>02</span><h3>Priority decisions</h3><p>A calculated risk score supports consistent priority recommendations using severity and affected-population data.</p></article>
+            <article class="crisisops-problem-card reveal"><span>03</span><h3>Resource visibility</h3><p>Dispatch decisions depend on current available, assigned, unavailable and maintenance states.</p></article>
+            <article class="crisisops-problem-card reveal"><span>04</span><h3>User-specific work</h3><p>Public users, Emergency Control Centre staff and administrators require different screens and actions.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section crisisops-section-alt">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">02 / PROJECT EVOLUTION</p><h2>Three stages from design to a <em>database-backed application.</em></h2></div>
+          <p>The first two assessment stages were completed individually. The final stage retained the JavaFX foundation and added collaborative client-server and database work.</p>
+        </div>
+
+        <div class="crisisops-stage-grid">
+          <article class="crisisops-stage-card reveal">
+            <span class="crisisops-stage-number">01</span>
+            <h3>Analysis and design</h3>
+            <p>I defined the original system boundary, actors, requirements, use cases, interaction sequences and MVC direction.</p>
+            <ul><li>Context model and system scope</li><li>Sixteen detailed use cases</li><li>Four use-case diagrams</li><li>Four sequence diagrams</li></ul>
+          </article>
+          <article class="crisisops-stage-card reveal">
+            <span class="crisisops-stage-number">02</span>
+            <h3>Individual JavaFX prototype</h3>
+            <p>I implemented the core workflow as a JavaFX desktop prototype with in-memory storage and JUnit 4 tests.</p>
+            <ul><li>Report-to-dispatch workflow</li><li>Severity and priority logic</li><li>Resource availability tracker</li><li>Incident search and filtering</li></ul>
+          </article>
+          <article class="crisisops-stage-card reveal">
+            <span class="crisisops-stage-number">03</span>
+            <h3>Collaborative expansion</h3>
+            <p>The team expanded the prototype into a broader local client-server application.</p>
+            <ul><li>Multi-threaded socket server</li><li>MySQL and DAO persistence</li><li>Login, registration and role-aware dashboards</li><li>Alerts, shelters and user administration</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">03 / CORE WORKFLOW</p><h2>Turn a public report into a <em>coordinated response record.</em></h2></div>
+          <p>The six-step sequence established in the individual prototype remained central to the completed academic application.</p>
+        </div>
+
+        <ol class="crisisops-workflow reveal" aria-label="CrisisOps disaster-response workflow">
+          <li><span>01</span><h3>Report disaster</h3><p>A public user submits a disaster or hazard report.</p></li>
+          <li><span>02</span><h3>Register incident</h3><p>Emergency Control Centre staff validate the report and create an incident record.</p></li>
+          <li><span>03</span><h3>Assess severity</h3><p>Staff record severity and the number of affected people.</p></li>
+          <li><span>04</span><h3>Recommend priority</h3><p>The application calculates a risk score and recommends a response priority.</p></li>
+          <li><span>05</span><h3>Dispatch resources</h3><p>Available resources are selected and response activity is recorded.</p></li>
+          <li><span>06</span><h3>Update status</h3><p>Staff maintain incident progress and publish relevant community information.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="crisisops-section crisisops-section-alt">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">04 / ACCESS MODEL</p><h2>Role-aware navigation for <em>three user groups.</em></h2></div>
+          <p>After a successful login, the JavaFX client stores the returned role and shows or hides dashboard functions for that user type.</p>
+        </div>
+
+        <div class="crisisops-role-grid">
+          <article class="crisisops-role-card reveal">
+            <span class="crisisops-role-number">01</span>
+            <h3>Public user</h3>
+            <p>Community-facing access for account registration, disaster reporting and published alerts.</p>
+            <ul><li>Registration and sign-in</li><li>Disaster reporting</li><li>Published alert access</li></ul>
+          </article>
+          <article class="crisisops-role-card reveal">
+            <span class="crisisops-role-number">02</span>
+            <h3>Emergency Control Centre</h3>
+            <p>Operational screens covering incident assessment, resource coordination, shelters and alerts.</p>
+            <ul><li>Incidents, severity and priority</li><li>Resources and dispatch</li><li>Shelters and public alerts</li></ul>
+          </article>
+          <article class="crisisops-role-card reveal">
+            <span class="crisisops-role-number">03</span>
+            <h3>System administrator</h3>
+            <p>Access to the operational workspace with an additional user-management interface.</p>
+            <ul><li>Operational dashboard access</li><li>User account creation</li><li>Account status and role fields</li></ul>
+          </article>
+        </div>
+
+        <div class="crisisops-attribution reveal" style="margin-top: 24px;">
+          <span>Security boundary</span>
+          <p>Role separation is implemented in the JavaFX client. The socket server does not issue session tokens or enforce role checks for every request, so this is an academic access model rather than production-grade authorisation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section" id="architecture">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">05 / ARCHITECTURE</p><h2>A JavaFX client connected to a <em>multi-threaded Java server.</em></h2></div>
+          <p>The desktop client sends serialised requests over sockets. The server routes each request, calls DAO classes and returns a response from the MySQL-backed application.</p>
+        </div>
+
+        <div class="crisisops-architecture reveal" aria-label="CrisisOps client-server architecture">
+          <div class="crisisops-architecture-head"><span>Completed academic architecture</span><span>Local client-server deployment</span></div>
+          <div class="crisisops-architecture-flow">
+            <article class="crisisops-architecture-node">
+              <span>Desktop client</span>
+              <strong>JavaFX and FXML</strong>
+              <small>Role-aware screens · form interaction · local session state · request creation</small>
+            </article>
+            <div class="crisisops-architecture-link" aria-hidden="true"><span>Object streams</span></div>
+            <article class="crisisops-architecture-node">
+              <span>Application server</span>
+              <strong>Multi-threaded Java server</strong>
+              <small>One client handler thread per accepted connection · request routing · application logic</small>
+            </article>
+            <div class="crisisops-architecture-link" aria-hidden="true"><span>JDBC / DAO</span></div>
+            <article class="crisisops-architecture-node">
+              <span>Persistence</span>
+              <strong>MySQL database</strong>
+              <small>Users · reports · incidents · resources · dispatch · alerts · shelters · audit records</small>
+            </article>
+          </div>
+          <div class="crisisops-architecture-secondary">
+            <article><span>Interface structure</span><strong>MVC-style organisation</strong><small>FXML views and controllers separate interface concerns from model and service behaviour.</small></article>
+            <article><span>Data access</span><strong>DAO classes</strong><small>Database operations are grouped behind dedicated data-access components.</small></article>
+            <article><span>Configuration</span><strong>External database credentials</strong><small>Local credentials are supplied through environment variables or Java system properties.</small></article>
+          </div>
+        </div>
+
+        <ul class="crisisops-tech-list reveal" aria-label="CrisisOps technologies">
+          <li>Java 17</li><li>JavaFX</li><li>FXML</li><li>CSS</li><li>Java sockets</li><li>Multi-threading</li><li>MySQL</li><li>JDBC</li><li>DAO</li><li>JUnit 4</li><li>Apache Ant</li><li>NetBeans</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="crisisops-section crisisops-section-alt" id="contribution">
+      <div class="shell crisisops-contribution-layout">
+        <div class="crisisops-contribution-copy reveal">
+          <p class="section-code">06 / MY CONTRIBUTION</p>
+          <h2>Individual system development followed by JavaFX integration work.</h2>
+          <p>I completed the original analysis, design and working JavaFX prototype individually. That application was selected as the foundation for the final group assessment.</p>
+          <p>During the collaborative stage, my work centred on JavaFX interfaces, role-aware navigation, frontend request components and connecting screens to backend request and response flows.</p>
+        </div>
+
+        <div class="crisisops-contribution-list">
+          <article class="crisisops-contribution-item reveal"><span>01</span><div><h3>Requirements and design</h3><p>Defined the original system boundary, actors, requirements, use cases, sequence flows and MVC direction.</p></div></article>
+          <article class="crisisops-contribution-item reveal"><span>02</span><div><h3>Individual JavaFX prototype</h3><p>Implemented the report, incident registration, severity, priority, dispatch, status, resource-tracking and search workflows.</p></div></article>
+          <article class="crisisops-contribution-item reveal"><span>03</span><div><h3>Decision-support logic</h3><p>Built the resource-availability tracker and priority-recommendation behaviour based on severity and affected population.</p></div></article>
+          <article class="crisisops-contribution-item reveal"><span>04</span><div><h3>Role-aware interfaces</h3><p>Contributed login, public registration, dashboards, alerts, shelters and administrator user-management screens.</p></div></article>
+          <article class="crisisops-contribution-item reveal"><span>05</span><div><h3>Client integration</h3><p>Prepared frontend request components and connected JavaFX screens to server responses for selected workflows.</p></div></article>
+          <article class="crisisops-contribution-item reveal"><span>06</span><div><h3>Repository preparation</h3><p>Removed private database credentials, applied CrisisOps branding and organised setup, attribution and project-evolution documentation.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">07 / INTERFACE GALLERY</p><h2>Disaster-response functions across <em>role-aware JavaFX screens.</em></h2></div>
+          <p>The repository includes screenshots of the main public, Emergency Control Centre and administrator workflows.</p>
+        </div>
+
+        <div class="crisisops-gallery">
+          <figure class="crisisops-frame reveal">
+            <div class="crisisops-frame-bar"><span>Emergency resources</span><span>ECC workspace</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/ECC/Crisis%20Ops%20ECC%20Resource%20Availability.png" alt="CrisisOps emergency-resource availability interface" loading="lazy" decoding="async">
+            <figcaption>Resource statuses provide operational context before staff record a dispatch.</figcaption>
+          </figure>
+          <figure class="crisisops-frame reveal">
+            <div class="crisisops-frame-bar"><span>Public disaster report</span><span>Community access</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/public/Crisis%20Ops%20Public%20Report%20Disaster.png" alt="CrisisOps public disaster-reporting interface" loading="lazy" decoding="async">
+            <figcaption>The reporting form captures the information required for staff review and incident registration.</figcaption>
+          </figure>
+          <figure class="crisisops-frame reveal">
+            <div class="crisisops-frame-bar"><span>Published public alerts</span><span>Community information</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/public/Crisis%20Ops%20Public%20Public%20Alerts.png" alt="CrisisOps public-alert interface" loading="lazy" decoding="async">
+            <figcaption>Public users can read alerts that have been published through the application.</figcaption>
+          </figure>
+          <figure class="crisisops-frame reveal">
+            <div class="crisisops-frame-bar"><span>Administrator user management</span><span>System administration</span></div>
+            <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/System%20admin/Crisis%20Ops%20Admin%20User%20Management.png" alt="CrisisOps administrator user-management interface" loading="lazy" decoding="async">
+            <figcaption>The administrator screen separates user-management functions from public access.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section crisisops-section-alt">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">08 / TESTING EVIDENCE</p><h2>Current repository <em>JUnit test results.</em></h2></div>
+          <p>A full local JUnit 4 run of the current CrisisOps repository completed with 40 tests passing across selected models, services, validation rules, session state and repository behaviour.</p>
+        </div>
+
+        <div class="crisisops-testing-layout">
+          <article class="crisisops-test-summary reveal">
+            <strong>40</strong>
+            <span>Current repository tests passed</span>
+            <p>The complete project test suite was run locally from the current CrisisOps repository. The result is presented as local JUnit evidence rather than an automated continuous-integration result.</p>
+          </article>
+
+          <div class="crisisops-test-grid">
+            <article class="crisisops-test-card reveal"><span>Models</span><h3>Domain-object behaviour</h3><p>Tests cover disaster reports, emergency resources and emergency responses.</p></article>
+            <article class="crisisops-test-card reveal"><span>Services</span><h3>Selected business rules</h3><p>Service tests cover incidents, priority recommendations, alerts, shelters and registration.</p></article>
+            <article class="crisisops-test-card reveal"><span>Validation</span><h3>Input constraints</h3><p>Alert and shelter validation tests exercise selected rules outside the JavaFX interface.</p></article>
+            <article class="crisisops-test-card reveal"><span>State and data</span><h3>Session and repository behaviour</h3><p>The suite includes tests for user-session state and the in-memory application repository.</p></article>
+          </div>
+        </div>
+
+        <figure class="crisisops-frame reveal" style="margin-top: 18px;">
+          <div class="crisisops-frame-bar"><span>Current CrisisOps repository</span><span>40 tests passed</span></div>
+          <img src="https://raw.githubusercontent.com/JeraldBucud/crisisops-disaster-response-system/main/docs/images/screenshots/Crisisops_40test_Passed.webp" alt="Current CrisisOps JUnit result showing 40 tests passing" loading="lazy" decoding="async">
+          <figcaption>The screenshot records a successful local run of the current repository's complete JUnit 4 test suite.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="crisisops-section">
+      <div class="shell">
+        <div class="crisisops-section-heading reveal">
+          <div><p class="section-code">09 / ENGINEERING DECISIONS</p><h2>Technical choices for <em>workflow clarity and separation.</em></h2></div>
+          <p>The design connects interface structure, business rules, request handling and persistence while retaining the constraints of the submitted academic application.</p>
+        </div>
+
+        <div class="crisisops-decision-grid">
+          <article class="crisisops-decision-card reveal"><span>Workflow modelling</span><h3>Follow the operational sequence</h3><p>The interface progresses from report and validation through assessment, dispatch and status updates.</p></article>
+          <article class="crisisops-decision-card reveal"><span>Role-aware interface</span><h3>Show functions by user type</h3><p>The JavaFX dashboard changes its visible navigation for public, operational and administrator roles.</p></article>
+          <article class="crisisops-decision-card reveal"><span>Data access</span><h3>Keep SQL behind DAO classes</h3><p>Database operations are grouped in dedicated data-access components rather than embedded in interface controllers.</p></article>
+          <article class="crisisops-decision-card reveal"><span>Concurrency</span><h3>Handle each connection on a thread</h3><p>The server creates a client handler and a new thread for each accepted socket connection.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-section crisisops-section-alt">
+      <div class="shell">
+        <div class="crisisops-outcome-layout">
+          <div class="crisisops-outcome-copy reveal">
+            <p class="section-code">10 / CURRENT SCOPE</p>
+            <h2>A completed academic application with <em>clear modernisation priorities.</em></h2>
+            <p>CrisisOps demonstrates requirements engineering, JavaFX development, decision-support logic, socket communication, relational persistence, testing and collaborative integration.</p>
+          </div>
+
+          <div class="crisisops-outcome-grid">
+            <article class="crisisops-outcome-card reveal"><strong>01</strong><span>Individual foundation</span><p>The original requirements, architecture and working prototype establish my personal contribution.</p></article>
+            <article class="crisisops-outcome-card reveal"><strong>02</strong><span>Collaborative delivery</span><p>The final stage expanded the prototype with a server, database and broader integrated workflows.</p></article>
+            <article class="crisisops-outcome-card reveal"><strong>03</strong><span>Technical breadth</span><p>The application connects JavaFX, sockets, threads, JDBC, DAO classes, MySQL and JUnit.</p></article>
+            <article class="crisisops-outcome-card reveal"><strong>04</strong><span>Public evidence</span><p>The repository provides source code, setup guidance, screenshots, contribution history and known constraints.</p></article>
+          </div>
+        </div>
+
+        <div class="crisisops-reflection-grid" style="margin-top: 68px;">
+          <article class="crisisops-reflection-card reveal">
+            <h3>Current constraints</h3>
+            <ul><li>The socket protocol has no session token or per-request role authorisation.</li><li>Local client-server traffic does not use TLS.</li><li>Demonstration accounts and password compatibility remain from the academic build.</li><li>User-account update handling is not implemented on the server.</li><li>The Ant and NetBeans project requires local JavaFX and MySQL configuration.</li><li>No packaged release or automated CI workflow is included.</li></ul>
+          </article>
+          <article class="crisisops-reflection-card reveal">
+            <h3>Next engineering steps</h3>
+            <ul><li>Migrate the build to Maven or Gradle.</li><li>Add GitHub Actions for automated build and test verification.</li><li>Introduce authenticated sessions, request-level authorisation and encrypted communication.</li><li>Complete account-update behaviour and add integration tests around server requests.</li><li>Package the JavaFX application for simpler installation.</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="crisisops-contact">
+      <div class="shell">
+        <div class="crisisops-contact-panel reveal">
+          <div><p class="section-code">CASE STUDY 03</p><h2>Review the source and setup documentation.</h2></div>
+          <div class="crisisops-contact-actions">
+            <a class="button button-solid" href="https://github.com/JeraldBucud/crisisops-disaster-response-system" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
+            <a class="button button-ghost" href="index.html#work">View all projects <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div><strong>Jerald Christopher Bucud</strong><span>Master of IT Candidate · Full-stack Development and Applied AI</span></div>
+      <p>© <span id="current-year"></span> Academic software engineering case study.</p>
+      <a href="#main-content">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
